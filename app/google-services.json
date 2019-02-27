@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "296945706717",
+    "firebase_url": "https://leenadam-e2f6c.firebaseio.com",
+    "project_id": "leenadam-e2f6c",
+    "storage_bucket": "leenadam-e2f6c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296945706717:android:2a602f474b137548",
+        "android_client_info": {
+          "package_name": "com.leenadam.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296945706717-c5ggjvq7la3pecn3n0o5glr7vggurroa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.leenadam.app",
+            "certificate_hash": "3a39f2c03262218b5982a517d3a977bc327049a3"
+          }
+        },
+        {
+          "client_id": "296945706717-edkebllcbrkhve9gee1mmr14n1qpbi03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnpWPopsZkAoz8soDsjA-EH7B6icNHoRU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296945706717-edkebllcbrkhve9gee1mmr14n1qpbi03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

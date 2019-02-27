@@ -1,0 +1,68 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.leenadam.app.MainActivity">
+
+
+    <item
+        android:id="@+id/menu_inicio"
+        android:orderInCategory="100"
+        android:title="Início"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_inserirempresa"
+        android:orderInCategory="100"
+        android:title="Inserir Empresa"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_inserirusina"
+        android:orderInCategory="100"
+        android:title="Inserir Usina"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_inserirbarramento"
+        android:orderInCategory="100"
+        android:title="Inserir Barramento"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_infogerais"
+        android:orderInCategory="100"
+        android:title="Informações Gerais"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_matrizclassificacao"
+        android:orderInCategory="100"
+        android:title="Matriz de Classificação"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_declaracoes"
+        android:orderInCategory="100"
+        android:title="Declarações"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_configuracoes"
+        android:orderInCategory="100"
+        android:title="Configurações"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_relatorio"
+        android:orderInCategory="100"
+        android:title="Relatório"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_bd"
+        android:orderInCategory="100"
+        android:title="Test BD"
+        app:showAsAction="never" />
+
+
+</menu>
