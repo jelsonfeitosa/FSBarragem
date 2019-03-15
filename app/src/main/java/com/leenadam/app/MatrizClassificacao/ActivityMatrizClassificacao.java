@@ -9,12 +9,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,21 +29,20 @@ import com.leenadam.app.Empresa.ActivityInserirEmpresa;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
 import com.leenadam.app.MainActivity;
 import com.leenadam.app.R;
-import com.leenadam.app.TesteBancoActivity;
 import com.leenadam.app.Usina.ActivityInserirUsina;
-import com.leenadam.app.util.DadoMatrizClassif;
 import com.leenadam.app.util.ModoValorDesc;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import me.srodrigo.androidhintspinner.HintAdapter;
-import me.srodrigo.androidhintspinner.HintSpinner;
-
 public class ActivityMatrizClassificacao extends AppCompatActivity {
 
     protected static final String TAG = "MatrizClassificao";
     private FirebaseFirestore mFirestore;
+
+    private Button buttonEnviar;
+
+    private TextView textResultado;
 
     private AwesomeSpinner AwesomeSpinnerAltura;
     private AwesomeSpinner AwesomeSpinnerComprimento;
@@ -67,7 +64,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     private AwesomeSpinner AwesomeSpinnerProcedimentosRoteiros;
     private AwesomeSpinner AwesomeSpinnerRegraOperacional;
     private AwesomeSpinner AwesomeSpinnerRelatoriosInspecao;
-
+    /**/
     private AwesomeSpinner AwesomeSpinnerVolumeReservatorio;
     private AwesomeSpinner AwesomeSpinnerPotencialPerdasVidas;
     private AwesomeSpinner AwesomeSpinnerImpactoAmbiental;
@@ -93,11 +90,38 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     private List<String> listaProcedimentosRoteiros = new ArrayList<String>();
     private List<String> listaRegraOperacional = new ArrayList<String>();
     private List<String> listaRelatoriosInspecao = new ArrayList<String>();
-
+    /**/
     private List<String> listaVolumeReservatorio = new ArrayList<String>();
     private List<String> listaPotenciaPerdasVidas = new ArrayList<String>();
     private List<String> listaImpactoAmbiental = new ArrayList<String>();
     private List<String> listaImpactoSocioEconomico = new ArrayList<String>();
+
+    String recordA = "";
+    String recordB = "";
+    String recordC = "";
+    String recordD = "";
+    String recordE = "";
+    String recordF = "";
+    String recordG = "";
+
+    String recordH = "";
+    String recordI = "";
+    String recordJ = "";
+    String recordK = "";
+    String recordL = "";
+    String recordM = "";
+
+    String recordN = "";
+    String recordO = "";
+    String recordP = "";
+    String recordQ = "";
+    String recordR = "";
+
+    String recordS = "";
+    String recordT = "";
+    String recordU = "";
+    String recordV = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +135,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         // Access a Cloud Firestore instance from your Activity
 
         FirebaseFirestore.setLoggingEnabled(true);
-
+        // Página de configuração do Banco de dados - Conexão
         mFirestore = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)
@@ -134,17 +158,21 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         AwesomeSpinnerDeterioracaoTaludesParamentos = findViewById(R.id.AwesomeSpinnerDeterioracaoTaludesParamentos);
         AwesomeSpinnerEclusa = findViewById(R.id.AwesomeSpinnerEclusa);
 
+
         AwesomeSpinnerExistenciaDocProjeto = findViewById(R.id.AwesomeSpinnerExistenciaDocProjeto);
         AwesomeSpinnerEstrutOrganizacional = findViewById(R.id.AwesomeSpinnerEstrutOrganizacional);
         AwesomeSpinnerProcedimentosRoteiros = findViewById(R.id.AwesomeSpinnerProcedimentosRoteiros);
         AwesomeSpinnerRegraOperacional = findViewById(R.id.AwesomeSpinnerRegraOperacional);
         AwesomeSpinnerRelatoriosInspecao = findViewById(R.id.AwesomeSpinnerRelatoriosInspecao);
-
+        /**/
         AwesomeSpinnerVolumeReservatorio = findViewById(R.id.AwesomeSpinnerVolumeReservatorio);
         AwesomeSpinnerPotencialPerdasVidas = findViewById(R.id.AwesomeSpinnerPotencialPerdasVidas);
         AwesomeSpinnerImpactoAmbiental = findViewById(R.id.AwesomeSpinnerImpactoAmbiental);
         AwesomeSpinnerImpactoSocioEconomico = findViewById(R.id.AwesomeSpinnerImpactoSocioEconomico);
 
+        buttonEnviar = findViewById(R.id.buttonEnviar);
+
+        textResultado = findViewById(R.id.textResultado);
 
 
         CarregarDadosMatriz("1_Caracteristicas_Tecnicas_CT", "a_Altura", listaAltura, AwesomeSpinnerAltura);
@@ -167,14 +195,860 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         CarregarDadosMatriz("3_Plano_de_seguranca_da_Barragem_PS", "p_Procedimentos_Roteiros", listaProcedimentosRoteiros, AwesomeSpinnerProcedimentosRoteiros);
         CarregarDadosMatriz("3_Plano_de_seguranca_da_Barragem_PS", "q_Regra_Operacional", listaRegraOperacional, AwesomeSpinnerRegraOperacional);
         CarregarDadosMatriz("3_Plano_de_seguranca_da_Barragem_PS", "r_Relatorios_de_Inspecao", listaRelatoriosInspecao, AwesomeSpinnerRelatoriosInspecao);
-
+        /**/
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "a_Volume_Total_Reservatorio", listaVolumeReservatorio, AwesomeSpinnerVolumeReservatorio);
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "b_Potencial_Perdas_Vidas", listaPotenciaPerdasVidas, AwesomeSpinnerPotencialPerdasVidas);
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "c_Impacto_Ambiental", listaImpactoAmbiental, AwesomeSpinnerImpactoAmbiental);
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "d_Impacto_Socio_Economico", listaImpactoSocioEconomico, AwesomeSpinnerImpactoSocioEconomico);
 
 
+
+        //Matriz Características Técnicas - CT
+        AwesomeSpinnerAltura.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordA = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordA = "1";
+
+                        break;
+
+                    case 2:
+
+                        recordA = "2";
+
+                        break;
+
+                    case 3:
+
+                        recordA = "3";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerComprimento.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordB = "2";
+
+                        break;
+
+                    case 1:
+
+                        recordB = "3";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerTipoBarragem.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordC = "1";
+
+                        break;
+
+                    case 1:
+
+                        recordC = "2";
+
+                        break;
+
+                    case 2:
+
+                        recordC = "3";
+
+                        break;
+
+
+                }
+            }
+        });
+
+        AwesomeSpinnerTipoFundacao.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordD = "1";
+
+                        break;
+
+                    case 1:
+
+                        recordD = "2";
+
+                        break;
+
+                    case 2:
+
+                        recordD = "3";
+
+                        break;
+
+                    case 3:
+
+                        recordD = "4";
+
+                        break;
+
+                    case 4:
+
+                        recordD = "5";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerIdadeBarragem.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordE = "1";
+
+                        break;
+
+                    case 1:
+
+                        recordE = "2";
+
+                        break;
+
+                    case 2:
+
+                        recordE = "3";
+
+                        break;
+
+                    case 3:
+
+                        recordE = "4";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerVazaoProjeto.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordF = "3";
+
+                        break;
+
+                    case 1:
+
+                        recordF = "5";
+
+                        break;
+
+                    case 2:
+
+                        recordF = "8";
+
+                        break;
+
+                    case 3:
+
+                        recordF = "10";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerCasaForca.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordG = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordG = "2";
+
+                        break;
+
+                    case 2:
+
+                        recordG = "5";
+
+                        break;
+
+                }
+
+            }
+        });
+
+
+
+        //Matriz Estado de Conservação - EC
+
+        AwesomeSpinnerConfiabEstrutExtravasoras.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordH = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordH = "4";
+
+                        break;
+
+                    case 2:
+
+                        recordH = "7";
+
+                        break;
+
+                    case 3:
+
+                        recordH = "10";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerConfiabEstrutAducao.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordI = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordI = "4";
+
+                        break;
+
+                    case 2:
+
+                        recordI = "6";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerPercolacao.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordJ = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordJ = "3";
+
+                        break;
+
+                    case 2:
+
+                        recordJ = "5";
+
+                        break;
+
+                    case 3:
+
+                        recordJ = "8";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerDeformacoesRecalques.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordK = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordK = "1";
+
+                        break;
+
+                    case 2:
+
+                        recordK = "5";
+
+                        break;
+
+                    case 3:
+
+                        recordK = "8";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerDeterioracaoTaludesParamentos.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordL = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordL = "1";
+
+                        break;
+
+                    case 2:
+
+                        recordL = "5";
+
+                        break;
+
+                    case 3:
+
+                        recordL = "7";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerEclusa.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordM = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordM = "1";
+
+                        break;
+
+                    case 2:
+
+                        recordM = "2";
+
+                        break;
+
+                    case 3:
+
+                        recordM = "4";
+
+                        break;
+
+                }
+
+            }
+        });
+
+
+        //Matriz Plano de Segurança da Barragem - PS
+        AwesomeSpinnerExistenciaDocProjeto.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordN = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordN = "2";
+
+                        break;
+
+                    case 2:
+
+                        recordN = "4";
+
+                        break;
+
+                    case 3:
+
+                        recordN = "6";
+
+                        break;
+
+                    case 4:
+
+                        recordN = "8";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerEstrutOrganizacional.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordO = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordO = "4";
+
+                        break;
+
+                    case 2:
+
+                        recordO = "8";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerProcedimentosRoteiros.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordP = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordP = "3";
+
+                        break;
+
+                    case 2:
+
+                        recordP = "5";
+
+                        break;
+
+                    case 3:
+
+                        recordP = "6";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerRegraOperacional.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordQ = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordQ = "6";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerRelatoriosInspecao.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordR = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordR = "3";
+
+                        break;
+
+                    case 2:
+
+                        recordR = "5";
+
+                        break;
+
+                }
+
+            }
+        });
+
+
+
+        //Matriz Dano Potencial Associado - DPA
+        AwesomeSpinnerVolumeReservatorio.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                //ModoValorDesc classe = new ModoValorDesc(); //Falhou
+
+                switch (position) {
+
+                    case 0:
+
+                        recordS = "1";
+
+                        //classe.getValor(); //Falhou
+
+                        break;
+
+                    case 1:
+
+                        recordS = "2";
+
+                        break;
+
+                    case 2:
+
+                        recordS = "3";
+
+                        break;
+
+                    case 3:
+
+                        recordS = "5";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerPotencialPerdasVidas.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordT = "0";
+
+                        break;
+
+                    case 1:
+
+                        recordT = "4";
+
+                        break;
+
+                    case 2:
+
+                        recordT = "8";
+
+                        break;
+
+                    case 3:
+
+                        recordT = "12";
+
+                        break;
+
+                }
+
+            }
+        });
+
+        AwesomeSpinnerImpactoAmbiental.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordU = "3";
+
+                        break;
+
+                    case 1:
+
+                        recordU = "5";
+
+                        break;
+
+
+                }
+            }
+        });
+
+        AwesomeSpinnerImpactoSocioEconomico.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+            @Override
+            public void onItemSelected(int position, String itemAtPosition) {
+
+                switch (position) {
+
+                    case 0:
+
+                        recordV = "0";
+
+
+                        break;
+
+                    case 1:
+
+                        recordV = "4";
+
+                        break;
+
+                    case 2:
+
+                        recordV = "8";
+
+                        break;
+
+                }
+
+            }
+        });
+
+
+        buttonEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Matriz CT
+                int valorA = Integer.parseInt(recordA);
+                int valorB = Integer.parseInt(recordB);
+                int valorC = Integer.parseInt(recordC);
+                int valorD = Integer.parseInt(recordD);
+                int valorE = Integer.parseInt(recordE);
+                int valorF = Integer.parseInt(recordF);
+                int valorG = Integer.parseInt(recordG);
+
+                int somatorioCt = (valorA + valorB + valorC + valorD + valorE + valorF + valorG);
+
+                //textResultado.setText(String.valueOf("O resultado é: " + somatorioCt ));
+
+                Log.i("CT ", String.valueOf(somatorioCt));
+
+                //Matriz EC
+                int valorH = Integer.parseInt(recordH);//*
+                int valorI = Integer.parseInt(recordI);
+                int valorJ = Integer.parseInt(recordJ);//*
+                int valorK = Integer.parseInt(recordK);//*
+                int valorL = Integer.parseInt(recordL);
+                int valorM = Integer.parseInt(recordM);
+
+                int somatorioEc = (valorH + valorI + valorJ + valorK + valorL + valorM);
+
+                //textResultado.setText(String.valueOf("O resultado é: " + somatorioEc ));
+
+                Log.i("EC ", String.valueOf(somatorioEc));
+
+                //Matriz PS
+                int valorN = Integer.parseInt(recordN);
+                int valorO = Integer.parseInt(recordO);
+                int valorP = Integer.parseInt(recordP);
+                int valorQ = Integer.parseInt(recordQ);
+                int valorR = Integer.parseInt(recordR);
+
+                int somatorioPs = (valorN + valorO + valorP + valorQ + valorR);
+
+                //textResultado.setText(String.valueOf("O resultado é: " + somatorioPs ));
+
+                Log.i("PS ", String.valueOf(somatorioPs));
+
+                //Resultado Somatorio CRI
+                int somatorioCri = (somatorioCt + somatorioEc + somatorioPs);
+
+                String criResult = "";
+
+                if (valorH >= 8){
+                    criResult = "Alto";
+                }else if (valorJ >= 8){
+                    criResult = "Alto";
+                }else if (valorK >= 8){
+                    criResult = "Alto";
+                }else if (somatorioCri<=35){
+                    criResult = "Baixo";
+                }else if (somatorioCri<62){
+                    criResult = "Médio";
+                }else {
+                    criResult = "Alto";
+                }
+
+                //textResultado.setText(String.valueOf("O resultado é: " + somatorioCri + "; Classificação: " + criResult));
+
+                Log.i("CRI ", String.valueOf(somatorioCri) + " | Classificação: " + criResult);
+
+
+                //Matriz DPA
+                int valorS = Integer.parseInt(recordS);
+                int valorT = Integer.parseInt(recordT);
+                int valorU = Integer.parseInt(recordU);
+                int valorV = Integer.parseInt(recordV);
+
+                int somatorioDpa = (valorS + valorT + valorU + valorV);
+
+                String dpaResult = "";
+
+                if (somatorioDpa<=10){
+                    dpaResult = "Baixo";
+                }else if (somatorioDpa>10 && somatorioDpa<16){
+                    dpaResult = "Médio";
+                }else {
+                    dpaResult = "Alto";
+                }
+
+                //textResultado.setText(String.valueOf("O resultado é: " + somatorioDpa + "; Classificação: " + dpaResult));
+
+                Log.i("DPA ",  "O resultado é: " + somatorioDpa + " | Classificação: " + dpaResult);
+
+                //Resultado da Classificação
+                String resultadoClassificacao = "";
+
+                if (criResult == "Alto" && dpaResult == "Alto"){
+                    resultadoClassificacao = "A";
+                }else if ((criResult == "Médio" && dpaResult == "Alto")||(criResult == "Baixo" && dpaResult == "Alto")){
+                    resultadoClassificacao = "B";
+                }else if ((criResult == "Alto" && dpaResult == "Médio")||(criResult == "Alto" && dpaResult == "Baixo")){
+                    resultadoClassificacao = "B";
+                }else if ((criResult == "Médio" && dpaResult == "Médio")||(criResult == "Baixo" && dpaResult == "Médio")){
+                    resultadoClassificacao = "C";
+                }else if ((criResult == "Médio" && dpaResult == "Baixo")||(criResult == "Baixo" && dpaResult == "Baixo")){
+                    resultadoClassificacao = "C";
+                }
+
+                textResultado.setText(String.valueOf("O resultado da Classificação é: \n Barramento Classe: "
+                        + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
+                        + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa ));//Resultado
+
+                Log.i("Resultado ",  "Classe: " + resultadoClassificacao + " | CRI: " + criResult + " | DPA: " + dpaResult
+                        + "\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
+
+            }
+        });
+
     }
+
+
+
 
     private void CarregarDadosMatriz(String tipoMatriz, String conjuntoItens, final List<String> listaDados,
                                      final AwesomeSpinner spinner){
@@ -190,9 +1064,9 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                //Log.d(TAG, document.getId() + " => " + document.getData()); // Le no formato JSON {desc=valor,valor=valor}
+                                //Log.d(TAG, document.getId() + " => " + document.getData()); // Lê no formato JSON {desc=descrição,valor=valor}
 
-                                ModoValorDesc modoValorDesc = document.toObject(ModoValorDesc.class); // Separa as tags de valores espeificos de desc e valor
+                                ModoValorDesc modoValorDesc = document.toObject(ModoValorDesc.class); // Separa as tags de valores específicos de desc e valor
                                 Log.d(TAG, modoValorDesc.getDesc() + " | " + modoValorDesc.getValor());
 
                                 listaDados.add(modoValorDesc.getDesc());
@@ -201,15 +1075,16 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                             ArrayAdapter<String> categoriesAdapter = new ArrayAdapter<String>(getApplicationContext(),
                                     android.R.layout.simple_spinner_item, listaDados);
                             spinner.setAdapter(categoriesAdapter);
-                            spinner.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
+                            /*spinner.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
                                 @Override
                                 public void onItemSelected(int position, String itemAtPosition) {
                                     //TODO YOUR ACTIONS
+
                                     Toast.makeText(getApplicationContext(), "Position: " + position + " | Item: "
                                                     + itemAtPosition + " | isSelected:" + spinner.isSelected(),
                                             Toast.LENGTH_LONG).show();
                                 }
-                            });
+                            });*/
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
@@ -218,6 +1093,8 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
