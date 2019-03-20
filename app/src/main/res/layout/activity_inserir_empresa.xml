@@ -271,7 +271,6 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                     android:layout_marginBottom="20dp"
                     android:text="Inserir" />
 
-
             </LinearLayout>
 
         </android.support.design.card.MaterialCardView>

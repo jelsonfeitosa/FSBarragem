@@ -217,20 +217,20 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         final Map<String, Object> dados = new HashMap<>();
 
         dados.put("nomeEmpresa", TextInputEditText_denominacao.getText().toString());
-        dados.put("idAneelAgente", TextInputEditText_idagente.getText().toString());
+        dados.put("idAneelAgente", TextInputEditText_idagente.getText().toString()); //passível de alteração no tipo de dado
 
         dados.put("enderecoEmpresa", TextInputEditText_enderecocorrep.getText().toString());
         dados.put("municipio", TextInputEditText_municipiocorrep.getText().toString());
         dados.put("estado", TextInputEditText_ufcorrep.getText().toString());
-        dados.put("codPostal", TextInputEditText_cepcorrep.getText().toString());
+        dados.put("codPostal", TextInputEditText_cepcorrep.getText().toString()); //passível de alteração no tipo de dado
 
         dados.put("nomeRepresentante", TextInputEditText_nomerepresentante.getText().toString());
         dados.put("emailRepresentante", TextInputEditText_emailrepresentante.getText().toString());
-        dados.put("telefoneRepresentante", TextInputEditText_telefonerepresentante.getText().toString());
+        dados.put("telefoneRepresentante", TextInputEditText_telefonerepresentante.getText().toString()); //passível de alteração no tipo de dado
 
         dados.put("reponsavelTecnico", TextInputEditText_nomeresptecnico.getText().toString());
         dados.put("emailReponsavelTecnico", TextInputEditText_emailresptecnico.getText().toString());
-        dados.put("telefoneResponsavelTecnico", TextInputEditText_telefoneresptecnico.getText().toString());
+        dados.put("telefoneResponsavelTecnico", TextInputEditText_telefoneresptecnico.getText().toString()); //passível de alteração no tipo de dado
 
         dados.put("dataCriacao", FieldValue.serverTimestamp());
 

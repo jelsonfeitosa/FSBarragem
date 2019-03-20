@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto">
 
     <!--tools:showIn="@layout/activity_inserir_usina"-->
 
@@ -79,17 +80,46 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-<!--faltou implementar o floating action menu aqui ... acabei fazendo isso no activity_principal-->
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+
+    <com.github.clans.fab.FloatingActionMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="@color/browser_actions_divider_color"
-        app:backgroundTintMode="src_over"
-        app:fabSize="normal"
-        app:maxImageSize="@android:dimen/app_icon_size" />
+        android:layout_gravity="end|bottom"
+        android:layout_margin="10dp"
+        app:menu_icon="@drawable/ic_adicionar_branco_24dp"
+        app:menu_colorNormal="@color/colorAccent"
+        app:menu_colorPressed="@color/colorAccent">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_despesa"
+            android:onClick="adicionarEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_adicionar_branco_24dp"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_size="mini"
+            fab:fab_label="Empresa" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_receita"
+            android:onClick="adicionarUsina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_adicionar_branco_24dp"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_size="mini"
+            fab:fab_label="Usina" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_barramento"
+            android:onClick="adicionarBarramento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_adicionar_branco_24dp"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_size="mini"
+            fab:fab_label="Barramento" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.design.widget.CoordinatorLayout>

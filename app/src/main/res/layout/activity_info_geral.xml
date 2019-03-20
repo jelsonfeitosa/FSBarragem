@@ -26,6 +26,12 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:contentPadding="16dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -438,22 +444,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
                 android:padding="4dp"
                 android:text="IV - OBRIGAÇÕES NORMATIVAS REFERENTES AO BARRAMENTO"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:padding="4dp"
                 android:text="Plano de Segurança da Barragem (PSB) elaborado?"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -468,7 +472,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Sim" />
+                    android:text="Sim"
+                    android:textSize="14sp" />
 
                 <RadioButton
                     android:id="@+id/radio_nao"
@@ -488,6 +493,7 @@
             </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -495,10 +501,9 @@
                     android:id="@+id/TextInputEditText_dataconclusaopsb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Data de conclusão PSB"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
 
 
@@ -507,12 +512,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:padding="4dp"
                 android:text="Plano de Ação de Emergência (PAE) elaborado?"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -543,6 +547,7 @@
             </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -550,22 +555,20 @@
                     android:id="@+id/TextInputEditText_dataconclusaopae"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Data de conclusão PAE"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:padding="4dp"
                 android:text="Plano de Ação de Emergência (PAE) protocolado na Defesa Civil/Prefeitura?"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -596,6 +599,7 @@
             </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -603,22 +607,20 @@
                     android:id="@+id/TextInputEditText_dataprotocolopae"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Data de protocolo PAE"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:padding="4dp"
                 android:text="Plano de Segurança Regular (ISR) realizada?"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -649,6 +651,7 @@
             </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -656,22 +659,20 @@
                     android:id="@+id/TextInputEditText_dataconclusaoisr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Data de conclusão ISR"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:padding="4dp"
                 android:text="Inspeção de Segurança Especial (ISE) realizada?"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -702,6 +703,7 @@
             </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -709,29 +711,27 @@
                     android:id="@+id/TextInputEditText_dataconclusaoise"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Data de conclusão ISE"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:padding="4dp"
                 android:text="Nível de Segurança de Barragem"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <RadioButton
                     android:id="@+id/radio_normal"
@@ -762,12 +762,19 @@
 
             <Button
                 android:id="@+id/button2"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginBottom="20dp"
                 android:text="Inserir" />
 
 
         </LinearLayout>
+
+        </android.support.design.card.MaterialCardView>
 
 
     </android.support.v4.widget.NestedScrollView>

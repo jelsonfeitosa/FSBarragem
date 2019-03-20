@@ -74,7 +74,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
 
         TextInputEditText_alturamacicobarramento = findViewById(R.id.TextInputEditText_alturamacicobarramento);
         TextInputEditText_comprimentobarramento = findViewById(R.id.TextInputEditText_comprimentobarramento);
-
+/* comentei este bloco porque ele estava causando erro
         fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +129,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
 
             }
         });
-
+*/
     }
 
     @Override

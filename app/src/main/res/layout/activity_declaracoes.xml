@@ -6,49 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".Declaracoes.ActivityDeclaracoes">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Declarações"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:contentPadding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-        <android.support.design.widget.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/AppTheme.AppBarOverlay">
-
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:title="Declarações"
-                    android:background="?attr/colorPrimary"
-                    app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        </android.support.design.widget.AppBarLayout>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="4dp"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="Anotação de Responsabilidade Técnica - ART"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="      Declaro que as ações conduzidas pelo responsável técnico para a classificação da categoria de risco e dano potencial da(s) barragem(s) e/ou do(s) dique(s)e demais informações prestadas neste documento tiveram o devido recolhimento de anotação  de responsabilidade técnica – ART específica ou de cargo e função,  em atendimento ao parágrafo 2°, do Art. 18 da Resolução Normativa n° 696, de 15 de dezembro de 2015."
+                android:text="Declaro que as ações conduzidas pelo responsável técnico para a classificação da categoria de risco e dano potencial da(s) barragem(s) e/ou do(s) dique(s)e demais informações prestadas neste documento tiveram o devido recolhimento de anotação  de responsabilidade técnica – ART específica ou de cargo e função,  em atendimento ao parágrafo 2°, do Art. 18 da Resolução Normativa n° 696, de 15 de dezembro de 2015."
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textStyle="italic" />
@@ -56,24 +58,24 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="4dp"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="Declaração do Representante Legal"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="      Declaro, para fins de direito, sob as penas da lei e em atendimento à  Resolução Normativa n° 696, de 15 de dezembro de 2015, que as informações prestadas neste documento são verdadeiras, autênticas e condizentes com a realidade da(s) barragem(s) e/ou do(s) dique(s) da central geradora em referência.
+                android:text="Declaro, para fins de direito, sob as penas da lei e em atendimento à  Resolução Normativa n° 696, de 15 de dezembro de 2015, que as informações prestadas neste documento são verdadeiras, autênticas e condizentes com a realidade da(s) barragem(s) e/ou do(s) dique(s) da central geradora em referência.
       Nada mais a declarar, e ciente das responsabilidades pelas declarações prestadas, firmo a presente declaração.
       Fico ciente através desse documento que a falsidade dessa declaração configura crime previsto no Código Penal Brasileiro, e passível de apuração na forma da Lei."
                 android:textAlignment="viewStart"
                 android:textStyle="italic" />
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -81,14 +83,14 @@
                     android:id="@+id/TextInputEditText_localdeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Local"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -96,24 +98,23 @@
                     android:id="@+id/TextInputEditText_datadeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Data"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="4dp"
                 android:padding="4dp"
                 android:text="Representante Legal da Empresa"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -121,14 +122,14 @@
                     android:id="@+id/TextInputEditText_nomerepresentantedeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Nome"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -136,14 +137,14 @@
                     android:id="@+id/TextInputEditText_cpfrepresentantedeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="CPF"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -151,10 +152,9 @@
                     android:id="@+id/TextInputEditText_cargorepresentantedeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Cargo/Função"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -162,14 +162,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="4dp"
                 android:padding="4dp"
                 android:text="Responsável Técnico pela Segurança da Barragem"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -177,14 +177,14 @@
                     android:id="@+id/TextInputEditText_nometecnicodeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Nome"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -192,14 +192,14 @@
                     android:id="@+id/TextInputEditText_createcnicodeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Registro no CREA"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -207,14 +207,14 @@
                     android:id="@+id/TextInputEditText_cpftecnicodeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="CPF"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -222,10 +222,9 @@
                     android:id="@+id/TextInputEditText_cargotecnicodeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:hint="Cargo/Função"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="14sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -239,22 +238,10 @@
                 android:layout_marginBottom="20dp"
                 android:text="Aceitar" />
 
-
         </LinearLayout>
 
+        </android.support.design.card.MaterialCardView>
 
     </android.support.v4.widget.NestedScrollView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="@color/browser_actions_divider_color"
-        app:backgroundTintMode="src_over"
-        app:fabSize="normal"
-        app:maxImageSize="@android:dimen/app_icon_size" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -35,7 +35,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_matrizclassificacao"
+            android:id="@+id/menu_matrizclassificacao"
         android:orderInCategory="100"
         android:title="Matriz de Classificação"
         app:showAsAction="never" />

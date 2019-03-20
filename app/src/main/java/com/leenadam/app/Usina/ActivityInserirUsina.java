@@ -54,7 +54,7 @@ public class ActivityInserirUsina extends AppCompatActivity {
         TextInputEditText_capacidadetotalusina = findViewById(R.id.TextInputEditText_capacidadetotalusina);
         TextInputEditText_dataprimeiroenchimentousina = findViewById(R.id.TextInputEditText_dataprimeiroenchimentousina);
         TextInputEditText_numerobarramentosusina = findViewById(R.id.TextInputEditText_numerobarramentosusina);
-
+        /* comentei este bloco porque ele estava causando erro já que eu havia apagado o cód xml do fab na ActivityInserirUsina
         fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +119,7 @@ public class ActivityInserirUsina extends AppCompatActivity {
 
             }
         });
-
+*/
 
 
     }

@@ -20,6 +20,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //adicionei para configurar a biblioteca do github
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -46,6 +52,7 @@ dependencies {
 
     // Support Libs
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:animated-vector-drawable:28.0.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:customtabs:28.0.0'
@@ -54,11 +61,14 @@ dependencies {
     implementation 'com.android.support:support-media-compat:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.heinrichreimersoftware:material-intro:1.6'
+//adicionei para configurar a biblioteca do github - mudei de 1.6.2 para 1.6 e funcionou a execução do slider
 
     // Firestore
-    implementation 'com.google.firebase:firebase-core:16.0.6'
-    implementation 'com.google.firebase:firebase-firestore:17.1.5'
+    implementation 'com.google.firebase:firebase-core:16.0.6'//16.0.6 para 11.6.2
+    implementation 'com.google.firebase:firebase-firestore:17.1.5'//17.1.5 para 11.6.2
     implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'//adicionei para configurar a autenticação. Mudei da versão 16.1.0 para a versao 11.6.2 para obter os mesmo resultados da aula
 
     // ButterKnife (for sample code brevity)
     implementation 'com.jakewharton:butterknife:8.8.1'
@@ -73,4 +83,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.5'
     //novo spinner
     implementation 'me.srodrigo:androidhintspinner:1.0.0'
+
+    //floating action menu - modificado de "compile" para "implementation"
+    implementation 'com.github.clans:fab:1.6.4'
+
+    //Create an About Page
+    implementation 'com.github.medyo:android-about-page:1.2.5'
+
 }

@@ -29,8 +29,9 @@ public class ActivityInfoGerais extends AppCompatActivity {
         setContentView(R.layout.activity_info_geral);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+/* comentei este bloco porque ele estava causando erro
         FloatingActionButton fab = findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,6 +39,8 @@ public class ActivityInfoGerais extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+*/
+
     }
 
     public void onRadioButtonClicked(View view) {
@@ -95,7 +98,7 @@ public class ActivityInfoGerais extends AppCompatActivity {
                 break;
 
 
-            //Plano de Segurança Regular (ISR) realizada?
+            //Plano de Segurança Regular (PSR) realizada?
             case R.id.radio_sim3:
                 Toast.makeText(getApplicationContext(),"Sim",Toast.LENGTH_SHORT).show();
 
