@@ -7,7 +7,6 @@
 
     <!--tools:showIn="@layout/activity_inserir_usina"-->
 
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,9 +16,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Empresas"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="Empresas" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -32,7 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/text"
@@ -79,7 +77,7 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-<!--faltou implementar o floating action menu aqui ... acabei fazendo isso no activity_principal-->
+    <!--faltou implementar o floating action menu aqui ... acabei fazendo isso no activity_principal-->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

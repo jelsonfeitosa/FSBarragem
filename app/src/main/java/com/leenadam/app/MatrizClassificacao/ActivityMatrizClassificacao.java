@@ -27,7 +27,7 @@ import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
-import com.leenadam.app.MainActivity;
+import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.R;
 import com.leenadam.app.Usina.ActivityInserirUsina;
 import com.leenadam.app.util.ModoValorDesc;
@@ -200,7 +200,6 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "b_Potencial_Perdas_Vidas", listaPotenciaPerdasVidas, AwesomeSpinnerPotencialPerdasVidas);
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "c_Impacto_Ambiental", listaImpactoAmbiental, AwesomeSpinnerImpactoAmbiental);
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "d_Impacto_Socio_Economico", listaImpactoSocioEconomico, AwesomeSpinnerImpactoSocioEconomico);
-
 
 
         //Matriz Características Técnicas - CT
@@ -430,7 +429,6 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
 
             }
         });
-
 
 
         //Matriz Estado de Conservação - EC
@@ -799,7 +797,6 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         });
 
 
-
         //Matriz Dano Potencial Associado - DPA
         AwesomeSpinnerVolumeReservatorio.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
             @Override
@@ -979,24 +976,23 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
 
                 String criResult = "";
 
-                if (valorH >= 8){
+                if (valorH >= 8) {
                     criResult = "Alto";
-                }else if (valorJ >= 8){
+                } else if (valorJ >= 8) {
                     criResult = "Alto";
-                }else if (valorK >= 8){
+                } else if (valorK >= 8) {
                     criResult = "Alto";
-                }else if (somatorioCri<=35){
+                } else if (somatorioCri <= 35) {
                     criResult = "Baixo";
-                }else if (somatorioCri<62){
+                } else if (somatorioCri < 62) {
                     criResult = "Médio";
-                }else {
+                } else {
                     criResult = "Alto";
                 }
 
                 //textResultado.setText(String.valueOf("O resultado é: " + somatorioCri + "; Classificação: " + criResult));
 
                 Log.i("CRI ", String.valueOf(somatorioCri) + " | Classificação: " + criResult);
-
 
                 //Matriz DPA
                 int valorS = Integer.parseInt(recordS);
@@ -1008,38 +1004,38 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
 
                 String dpaResult = "";
 
-                if (somatorioDpa<=10){
+                if (somatorioDpa <= 10) {
                     dpaResult = "Baixo";
-                }else if (somatorioDpa>10 && somatorioDpa<16){
+                } else if (somatorioDpa > 10 && somatorioDpa < 16) {
                     dpaResult = "Médio";
-                }else {
+                } else {
                     dpaResult = "Alto";
                 }
 
                 //textResultado.setText(String.valueOf("O resultado é: " + somatorioDpa + "; Classificação: " + dpaResult));
 
-                Log.i("DPA ",  "O resultado é: " + somatorioDpa + " | Classificação: " + dpaResult);
+                Log.i("DPA ", "O resultado é: " + somatorioDpa + " | Classificação: " + dpaResult);
 
                 //Resultado da Classificação
                 String resultadoClassificacao = "";
 
-                if (criResult == "Alto" && dpaResult == "Alto"){
+                if (criResult == "Alto" && dpaResult == "Alto") {
                     resultadoClassificacao = "A";
-                }else if ((criResult == "Médio" && dpaResult == "Alto")||(criResult == "Baixo" && dpaResult == "Alto")){
+                } else if ((criResult == "Médio" && dpaResult == "Alto") || (criResult == "Baixo" && dpaResult == "Alto")) {
                     resultadoClassificacao = "B";
-                }else if ((criResult == "Alto" && dpaResult == "Médio")||(criResult == "Alto" && dpaResult == "Baixo")){
+                } else if ((criResult == "Alto" && dpaResult == "Médio") || (criResult == "Alto" && dpaResult == "Baixo")) {
                     resultadoClassificacao = "B";
-                }else if ((criResult == "Médio" && dpaResult == "Médio")||(criResult == "Baixo" && dpaResult == "Médio")){
+                } else if ((criResult == "Médio" && dpaResult == "Médio") || (criResult == "Baixo" && dpaResult == "Médio")) {
                     resultadoClassificacao = "C";
-                }else if ((criResult == "Médio" && dpaResult == "Baixo")||(criResult == "Baixo" && dpaResult == "Baixo")){
+                } else if ((criResult == "Médio" && dpaResult == "Baixo") || (criResult == "Baixo" && dpaResult == "Baixo")) {
                     resultadoClassificacao = "C";
                 }
 
                 textResultado.setText(String.valueOf("O resultado da Classificação é: \n Barramento Classe: "
                         + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
-                        + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa ));//Resultado
+                        + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa));//Resultado
 
-                Log.i("Resultado ",  "Classe: " + resultadoClassificacao + " | CRI: " + criResult + " | DPA: " + dpaResult
+                Log.i("Resultado ", "Classe: " + resultadoClassificacao + " | CRI: " + criResult + " | DPA: " + dpaResult
                         + "\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
 
             }
@@ -1048,10 +1044,8 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     }
 
 
-
-
     private void CarregarDadosMatriz(String tipoMatriz, String conjuntoItens, final List<String> listaDados,
-                                     final AwesomeSpinner spinner){
+                                     final AwesomeSpinner spinner) {
 
         mFirestore.collection("Matriz_de_Classificacao")
                 .document(tipoMatriz)
@@ -1093,7 +1087,6 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     }
                 });
     }
-
 
 
     @Override

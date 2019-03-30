@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
-import com.leenadam.app.MainActivity;
+import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
@@ -42,18 +42,17 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.radio_barragem:
-                Toast.makeText(getApplicationContext(),"Barramento selecionado: Barragem",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Barramento selecionado: Barragem", Toast.LENGTH_SHORT).show();
 
-                    break;
+                break;
             case R.id.radio_dique:
-                Toast.makeText(getApplicationContext(),"Barramento selecionado: Dique",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Barramento selecionado: Dique", Toast.LENGTH_SHORT).show();
 
-                    break;
+                break;
         }
     }
-
 
 
     @Override

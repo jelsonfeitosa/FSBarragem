@@ -2,8 +2,6 @@ package com.leenadam.app.InfoGeral;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -15,7 +13,7 @@ import android.widget.Toast;
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
-import com.leenadam.app.MainActivity;
+import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
@@ -48,107 +46,92 @@ public class ActivityInfoGerais extends AppCompatActivity {
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
 
             //Plano de Ação de Emergência (PAE) elaborado?
             case R.id.radio_sim:
-                Toast.makeText(getApplicationContext(),"Sim",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Sim", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.radio_nao:
-                Toast.makeText(getApplicationContext(),"Não",Toast.LENGTH_SHORT).show();
 
+            case R.id.radio_nao:
+                Toast.makeText(getApplicationContext(), "Não", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.radio_naoseaplica:
-                Toast.makeText(getApplicationContext(),"Não se Aplica.",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Não se Aplica.", Toast.LENGTH_SHORT).show();
                 break;
 
             //Plano de Ação de Emergência (PAE) protocolado na Defesa Civil/Prefeitura?
             case R.id.radio_sim1:
-                Toast.makeText(getApplicationContext(),"Sim",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Sim", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.radio_nao1:
-                Toast.makeText(getApplicationContext(),"Não",Toast.LENGTH_SHORT).show();
 
+            case R.id.radio_nao1:
+                Toast.makeText(getApplicationContext(), "Não", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.radio_naoseaplica1:
-                Toast.makeText(getApplicationContext(),"Não se Aplica.",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Não se Aplica.", Toast.LENGTH_SHORT).show();
                 break;
 
 
             //Plano de Ação de Emergência (PAE) protocolado na Defesa Civil/Prefeitura?
-
             case R.id.radio_sim2:
-                Toast.makeText(getApplicationContext(),"Sim",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Sim", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.radio_nao2:
-                Toast.makeText(getApplicationContext(),"Não",Toast.LENGTH_SHORT).show();
 
+            case R.id.radio_nao2:
+                Toast.makeText(getApplicationContext(), "Não", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.radio_naoseaplica2:
-                Toast.makeText(getApplicationContext(),"Não se Aplica.",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Não se Aplica.", Toast.LENGTH_SHORT).show();
                 break;
 
 
             //Plano de Segurança Regular (PSR) realizada?
             case R.id.radio_sim3:
-                Toast.makeText(getApplicationContext(),"Sim",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Sim", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.radio_nao3:
-                Toast.makeText(getApplicationContext(),"Não",Toast.LENGTH_SHORT).show();
 
+            case R.id.radio_nao3:
+                Toast.makeText(getApplicationContext(), "Não", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.radio_naoseaplica3:
-                Toast.makeText(getApplicationContext(),"Não se Aplica.",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Não se Aplica.", Toast.LENGTH_SHORT).show();
                 break;
 
 
             //Inspeção de Segurança Especial (ISE) realizada?
             case R.id.radio_sim4:
-                Toast.makeText(getApplicationContext(),"Sim",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Sim", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.radio_nao4:
-                Toast.makeText(getApplicationContext(),"Não",Toast.LENGTH_SHORT).show();
 
+            case R.id.radio_nao4:
+                Toast.makeText(getApplicationContext(), "Não", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.radio_naoseaplica4:
-                Toast.makeText(getApplicationContext(),"Não se Aplica.",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Não se Aplica.", Toast.LENGTH_SHORT).show();
                 break;
-
 
 
             //Nível de Segurança de Barragem
             case R.id.radio_normal:
-                Toast.makeText(getApplicationContext(),"Normal",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Normal", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.radio_atencao:
-                Toast.makeText(getApplicationContext(),"Atenção",Toast.LENGTH_SHORT).show();
 
+            case R.id.radio_atencao:
+                Toast.makeText(getApplicationContext(), "Atenção", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.radio_alerta:
-                Toast.makeText(getApplicationContext(),"Alerta",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Alerta", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.radio_emergencia:
-                Toast.makeText(getApplicationContext(),"Emergência",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Emergência", Toast.LENGTH_SHORT).show();
                 break;
 
         }
@@ -223,5 +206,3 @@ public class ActivityInfoGerais extends AppCompatActivity {
     }
 
 }
-
-

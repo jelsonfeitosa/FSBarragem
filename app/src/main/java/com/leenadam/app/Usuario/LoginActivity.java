@@ -21,7 +21,6 @@ import com.leenadam.app.R;
 import com.leenadam.app.activity.PrincipalActivity;
 import com.leenadam.app.config.ConfiguracaoFirebase;
 
-
 public class LoginActivity extends AppCompatActivity {
 
     private EditText campoEmail, campoSenha;
@@ -43,36 +42,33 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //validações
-
                 String textoEmail = campoEmail.getText().toString();
                 String textoSenha = campoSenha.getText().toString();
 
                 //validar se os campos foram preenchidos --> Pode ser criado um método para este processo de validação
-                if (!textoEmail.isEmpty()){
+                if (!textoEmail.isEmpty()) {
 
-                    if (!textoSenha.isEmpty()){
+                    if (!textoSenha.isEmpty()) {
                         //Autenticação do usuário - é necessário um método para validar o login do usuário - Criar e chamar o metodo validarLogin
                         usuario = new Usuario();
                         usuario.setEmail(textoEmail);
                         usuario.setSenha(textoSenha);
                         validarLogin();
 
-                    }else {
-                        Toast.makeText(LoginActivity.this,"Digite a senha", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Digite a senha", Toast.LENGTH_SHORT).show();
                     }
 
-                }else {
-                    Toast.makeText(LoginActivity.this,"Preencha o email", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Preencha o email", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 
     }
 
     //Método para validar o login dos usuários
-    public void validarLogin(){
+    public void validarLogin() {
 
         //recuperar o objeto do firebase que permite a autenticação do usuario
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();//objeto que permite cadastrar/autenticar o usuario
@@ -80,25 +76,26 @@ public class LoginActivity extends AppCompatActivity {
                 usuario.getEmail(),
                 usuario.getSenha()
 
-        ).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+        ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 //pra verificar se deu certo a autenticacao
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     //caso o login seja bem sucedido, enviar usuário para a tela principal
+                    //pode haver um toast avisando que o login foi executado com sucesso (opcional)
                     abrirTelaPrincipal();
 
-                }else {
+                } else {
                     //tratando as excessões
                     String excecao = "";
                     try {
                         throw task.getException();
-                    }catch (FirebaseAuthInvalidUserException e){
+                    } catch (FirebaseAuthInvalidUserException e) {
                         excecao = "Usuário não está cadastrado.";
-                    }catch (FirebaseAuthInvalidCredentialsException e){
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
                         excecao = "E-mail e senha não correspondem a um usuário cadastrado.";
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         excecao = "Erro ao cadastrar o usuário: " + e.getMessage();
                         e.printStackTrace();
                     }
@@ -113,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Método para abrir a tela principal
-    public void abrirTelaPrincipal(){
+    public void abrirTelaPrincipal() {
         startActivity(new Intent(this, PrincipalActivity.class));
         finish();//fecha a activity de login
     }

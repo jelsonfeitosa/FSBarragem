@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:background="@color/browser_actions_bg_grey"
-tools:context=".Empresa.ActivityInserirEmpresa">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/browser_actions_bg_grey"
+    android:orientation="vertical"
+    tools:context=".Empresa.ActivityInserirEmpresa">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,9 +17,9 @@ tools:context=".Empresa.ActivityInserirEmpresa">
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Inserir Empresa"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="Inserir Empresa" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -102,7 +102,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Endereço"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -117,7 +117,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Município"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -132,7 +132,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="UF"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -147,7 +147,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="CEP"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -172,7 +172,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Nome"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -187,7 +187,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Email"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -202,7 +202,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Telefone"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -226,7 +226,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Nome"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -241,7 +241,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Email"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -256,7 +256,7 @@ tools:context=".Empresa.ActivityInserirEmpresa">
                         android:layout_height="wrap_content"
                         android:hint="Telefone"
                         android:inputType="text"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -277,20 +277,19 @@ tools:context=".Empresa.ActivityInserirEmpresa">
 
     </android.support.v4.widget.NestedScrollView>
 
-<!--
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="@color/browser_actions_divider_color"
-        app:backgroundTintMode="src_over"
-        app:fabSize="normal"
-        app:maxImageSize="@android:dimen/app_icon_size" />
+    <!--
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="@color/browser_actions_divider_color"
+            app:backgroundTintMode="src_over"
+            app:fabSize="normal"
+            app:maxImageSize="@android:dimen/app_icon_size" />
 
--->
-
+    -->
 
 </FrameLayout>

@@ -17,10 +17,11 @@ public class Usuario {
     }
 
     //Método para salvar o usuário
-    public void salvar(){
+    public void salvar() {
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();//é preciso o metodo que retorne o objeto para o banco de dados
-        firebase.child("usuarios")
+        firebase.child("usuarios")//esse nó precisa existir dentro do Realtime Database do Firebase! testar se é necessário acrescentar o ".push()"!
                 .child(this.idUsuario)
+
                 .setValue(this);
     }
 

@@ -40,9 +40,7 @@ public class TesteBancoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teste_banco);
 
 
-
-
-    // Página de configuração do Banco de dados - Conexão
+        // Página de configuração do Banco de dados - Conexão
         mFirestore = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)
@@ -98,7 +96,6 @@ public class TesteBancoActivity extends AppCompatActivity {
         });
 
 
-
         buttonEnviarDocumento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,11 +136,6 @@ public class TesteBancoActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
 
     }
 }

@@ -1,4 +1,4 @@
-package com.leenadam.app;
+package com.leenadam.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +34,6 @@ import com.leenadam.app.Usuario.LoginActivity;
 import com.leenadam.app.activity.PrincipalActivity;
 import com.leenadam.app.config.ConfiguracaoFirebase;
 
-
 public class MainActivity extends IntroActivity {
 
     private FirebaseFirestore mFirestore;
@@ -49,7 +48,6 @@ public class MainActivity extends IntroActivity {
         //setSupportActionBar(toolbar);
 
 
-
         // Página de configuração do Banco de dados - Conexão
         FirebaseApp.initializeApp(this);
 
@@ -59,7 +57,6 @@ public class MainActivity extends IntroActivity {
                 .setTimestampsInSnapshotsEnabled(true)
                 .build();
         mFirestore.setFirestoreSettings(settings);
-
 
 
         //configurando as setas do slider
@@ -99,29 +96,29 @@ public class MainActivity extends IntroActivity {
     }
 
     //método para entrar "Já tenho uma conta"
-    public void btEntrar(View view){
+    public void btEntrar(View view) {
         startActivity(new Intent(this, LoginActivity.class));
 
     }
 
     //método para o botão cadastrar
-    public void btCadastrar(View view){
+    public void btCadastrar(View view) {
         startActivity(new Intent(this, CadastroActivity.class));
 
     }
 
     //método que será chamado logo que os sliders forem carregados
-    public void verificarUsuarioLogado(){
+    public void verificarUsuarioLogado() {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         //autenticacao.signOut();
 
-        if (autenticacao.getCurrentUser() != null){
+        if (autenticacao.getCurrentUser() != null) {
             abrirTelaPrincipal();
         }
     }
 
     //Método para abrir a tela principal
-    public void abrirTelaPrincipal(){
+    public void abrirTelaPrincipal() {
         startActivity(new Intent(this, PrincipalActivity.class));
     }
 

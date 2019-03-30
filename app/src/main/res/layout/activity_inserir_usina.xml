@@ -16,9 +16,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Inserir Usina"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="Inserir Usina" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -33,167 +33,167 @@
             android:layout_margin="16dp"
             app:contentPadding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Dados da Usina"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_nomeusina"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nome da Usina"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
+                    android:padding="4dp"
+                    android:text="Dados da Usina"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_nomeusina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nome da Usina"
+                        android:inputType="text"
+                        android:textSize="14sp" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_idusina"
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_idusina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Identificador ANEEL da Usina"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_potenciausina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Potência da Usina (MW)"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_nomeriousina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nome do rio"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_municipiousina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Município"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_estadousina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Estado"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_capacidadetotalusina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Capacidade total do reservatório (m³)"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_dataprimeiroenchimentousina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data do 1º enchimento do reservatório"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_numerobarramentosusina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Número total de barramentos da usina"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Identificador ANEEL da Usina"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Inserir" />
 
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_potenciausina"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Potência da Usina (MW)"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_nomeriousina"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nome do rio"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_municipiousina"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Município"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_estadousina"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Estado"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_capacidadetotalusina"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Capacidade total do reservatório (m³)"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_dataprimeiroenchimentousina"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Data do 1º enchimento do reservatório"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_numerobarramentosusina"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Número total de barramentos da usina"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <Button
-                android:id="@+id/button2"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginBottom="20dp"
-                android:text="Inserir" />
-
-        </LinearLayout>
+            </LinearLayout>
 
         </android.support.design.card.MaterialCardView>
 

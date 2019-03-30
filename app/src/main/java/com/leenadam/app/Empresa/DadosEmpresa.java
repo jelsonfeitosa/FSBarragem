@@ -6,7 +6,6 @@ import java.util.Date;
 
 public class DadosEmpresa {
 
-
     private String nomeEmpresa;
     private String idAneelAgente;
 
@@ -24,7 +23,8 @@ public class DadosEmpresa {
     private String estado;
     private String codPostal;
 
-    private @ServerTimestamp Date dataCriacao;
+    private @ServerTimestamp
+    Date dataCriacao;
 
     public Date getDataCriacao() {
         return dataCriacao;

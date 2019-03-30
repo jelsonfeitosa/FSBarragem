@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.Toolbar;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,7 +24,7 @@ import com.google.firebase.firestore.Transaction;
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
-import com.leenadam.app.MainActivity;
+import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
@@ -50,11 +48,9 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
     private TextInputEditText TextInputEditText_ufcorrep;
     private TextInputEditText TextInputEditText_cepcorrep;
 
-
     private TextInputEditText TextInputEditText_nomerepresentante;
     private TextInputEditText TextInputEditText_emailrepresentante;
     private TextInputEditText TextInputEditText_telefonerepresentante;
-
 
     private TextInputEditText TextInputEditText_nomeresptecnico;
     private TextInputEditText TextInputEditText_emailresptecnico;
@@ -211,7 +207,7 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         });
     }
 
-//Método para enviar dados para o Firebase
+    //Método para enviar dados para o Firebase
     private void enviarDados() {
 
         final Map<String, Object> dados = new HashMap<>();

@@ -8,13 +8,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
-import com.leenadam.app.MainActivity;
+import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
@@ -55,6 +54,9 @@ public class ActivityInserirUsina extends AppCompatActivity {
         TextInputEditText_dataprimeiroenchimentousina = findViewById(R.id.TextInputEditText_dataprimeiroenchimentousina);
         TextInputEditText_numerobarramentosusina = findViewById(R.id.TextInputEditText_numerobarramentosusina);
         /* comentei este bloco porque ele estava causando erro já que eu havia apagado o cód xml do fab na ActivityInserirUsina
+
+        //trocar o "fab" pelo "button" para realizar a validação dos dados aqui, e em todas as outras telas
+
         fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +123,6 @@ public class ActivityInserirUsina extends AppCompatActivity {
         });
 */
 
-
     }
 
     @Override
@@ -142,13 +143,11 @@ public class ActivityInserirUsina extends AppCompatActivity {
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
             return true;
-
         }
 
         if (id == R.id.menu_inserirempresa) {
             startActivity(new Intent(this, ActivityInserirEmpresa.class));
             return true;
-
         }
 
         if (id == R.id.menu_inserirusina) {
@@ -191,6 +190,5 @@ public class ActivityInserirUsina extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

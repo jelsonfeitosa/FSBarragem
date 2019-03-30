@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
-import com.leenadam.app.MainActivity;
+import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;

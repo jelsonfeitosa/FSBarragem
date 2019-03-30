@@ -68,7 +68,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.6'//16.0.6 para 11.6.2
     implementation 'com.google.firebase:firebase-firestore:17.1.5'//17.1.5 para 11.6.2
     implementation 'com.firebase:firebase-client-android:2.5.2'
-    implementation 'com.google.firebase:firebase-auth:16.1.0'//adicionei para configurar a autenticação. Mudei da versão 16.1.0 para a versao 11.6.2 para obter os mesmo resultados da aula
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
+//adicionei para configurar a autenticação. Mudei da versão 16.1.0 para a versao 11.6.2 para obter os mesmo resultados da aula
 
     // ButterKnife (for sample code brevity)
     implementation 'com.jakewharton:butterknife:8.8.1'

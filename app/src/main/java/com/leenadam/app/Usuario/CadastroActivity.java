@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.util.Base64Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.leenadam.app.R;
 import com.leenadam.app.config.ConfiguracaoFirebase;
+import com.leenadam.app.helper.Base64Custom;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -31,6 +33,8 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
+        //getSupportActionBar().setTitle("Cadastro");//altera o título da toolbar
+
         campoNome = findViewById(R.id.editNome);
         campoEmail = findViewById(R.id.editEmail);
         campoSenha = findViewById(R.id.editSenha);
@@ -44,11 +48,11 @@ public class CadastroActivity extends AppCompatActivity {
                 String textoEmail = campoEmail.getText().toString();
                 String textoSenha = campoSenha.getText().toString();
                 //validar se os campos foram preenchidos --> Pode ser criado um método para este processo de validação
-                if (!textoNome.isEmpty()){
+                if (!textoNome.isEmpty()) {
 
-                    if (!textoEmail.isEmpty()){
+                    if (!textoEmail.isEmpty()) {
 
-                        if (!textoSenha.isEmpty()){
+                        if (!textoSenha.isEmpty()) {
                             //Se todos os itens forem atendidos, Cadastrar o usuario - Criar e chamar o metodo cadastrarUsuario
                             usuario = new Usuario();
                             usuario.setNome(textoNome);
@@ -56,23 +60,24 @@ public class CadastroActivity extends AppCompatActivity {
                             usuario.setSenha(textoSenha);
                             cadastrarUsuario();
 
-                        }else {
-                            Toast.makeText(CadastroActivity.this,"Preencha a senha", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(CadastroActivity.this, "Preencha a senha", Toast.LENGTH_SHORT).show();
                         }
 
-                    }else {
-                        Toast.makeText(CadastroActivity.this,"Preencha o email", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(CadastroActivity.this, "Preencha o email", Toast.LENGTH_SHORT).show();
                     }
 
-                }else {
-                    Toast.makeText(CadastroActivity.this,"Preencha o nome", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CadastroActivity.this, "Preencha o nome", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
     }
+
     //Método para cadastrar os usuários
-    public void cadastrarUsuario(){
+    public void cadastrarUsuario() {
 
         //recuperar o objeto do firebase que permite a autenticação do usuario
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();//objeto que permite cadastrar o usuario
@@ -84,28 +89,26 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 //pra verificar se deu certo o cadastro
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
 
-                    //String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
-                    //usuario.setIdUsuario(idUsuario);
-
-
+                    String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+                    usuario.setIdUsuario(idUsuario);
+                    usuario.salvar();
                     finish();
-
                     //Toast.makeText(CadastroActivity.this,"Sucesso ao cadastrar usuário!", Toast.LENGTH_SHORT).show();
 
-                }else {
+                } else {
                     //tratando as excessões
                     String excecao = "";
                     try {
                         throw task.getException();
-                    }catch (FirebaseAuthWeakPasswordException e){
+                    } catch (FirebaseAuthWeakPasswordException e) {
                         excecao = "Digite uma senha mais forte!";
-                    }catch (FirebaseAuthInvalidCredentialsException e){
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
                         excecao = "Por favor, digite um e-mail válido.";
-                    }catch (FirebaseAuthUserCollisionException e){
+                    } catch (FirebaseAuthUserCollisionException e) {
                         excecao = "Essa conta já foi cadastrada.";
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         excecao = "Algo deu errado ao cadastrar o usuário:" + e.getMessage();
                         e.printStackTrace();
                     }

@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import com.leenadam.app.R;
 
 public class ProgressBarLogin extends Activity {
-/**/
+    /**/
 /*
     private ProgressBar mProgress;
 
@@ -44,5 +44,4 @@ public class ProgressBarLogin extends Activity {
         });
     }
 */
-
 }

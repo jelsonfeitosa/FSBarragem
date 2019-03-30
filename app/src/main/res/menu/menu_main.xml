@@ -1,8 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.leenadam.app.MainActivity">
-
+    tools:context="com.leenadam.app.activity.MainActivity">
 
     <item
         android:id="@+id/menu_inicio"
@@ -35,7 +34,7 @@
         app:showAsAction="never" />
 
     <item
-            android:id="@+id/menu_matrizclassificacao"
+        android:id="@+id/menu_matrizclassificacao"
         android:orderInCategory="100"
         android:title="Matriz de Classificação"
         app:showAsAction="never" />
@@ -64,5 +63,10 @@
         android:title="Test BD"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/menuSair"
+        android:orderInCategory="100"
+        android:title="Sair"
+        app:showAsAction="never" />
 
 </menu>

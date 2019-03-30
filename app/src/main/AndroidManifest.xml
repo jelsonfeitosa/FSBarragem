@@ -15,14 +15,14 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity android:name=".Empresa.ActivityInserirEmpresa" />
@@ -39,12 +39,7 @@
         <activity android:name=".Usuario.SplashScreen" />
         <activity android:name=".TesteBancoActivity" />
         <activity android:name=".Usuario.CadastroActivity" />
-        <activity android:name=".activity.PrincipalActivity" />
-        <activity android:name=".activity.SobreActivity" />
-        <activity
-            android:name=".NavigationActivity"
-            android:label="@string/title_activity_navigation"></activity>
-        <!-- <activity android:name=".MainActivity" /> -->
+        <activity android:name=".activity.PrincipalActivity"/>
 
     </application>
 

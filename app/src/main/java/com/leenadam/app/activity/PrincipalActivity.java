@@ -4,25 +4,24 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
-import com.leenadam.app.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
 import com.leenadam.app.Usina.ActivityInserirUsina;
+import com.leenadam.app.config.ConfiguracaoFirebase;
 
 public class PrincipalActivity extends AppCompatActivity {
 
-
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,26 +29,19 @@ public class PrincipalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
-    public void adicionarEmpresa(View view){
+    public void adicionarEmpresa(View view) {
         startActivity(new Intent(this, ActivityInserirEmpresa.class));
-
     }
 
-    public void adicionarUsina(View view){
+    public void adicionarUsina(View view) {
         startActivity(new Intent(this, ActivityInserirUsina.class));
-
     }
 
-    public void adicionarBarramento(View view){
+    public void adicionarBarramento(View view) {
         startActivity(new Intent(this, ActivityInserirBarramento.class));
-
     }
-
-
 
 
     @Override
@@ -69,7 +61,6 @@ public class PrincipalActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
             return true;
@@ -120,10 +111,16 @@ public class PrincipalActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.menuSair) {
+            autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+            autenticacao.signOut();
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
-
-
 
 
 }

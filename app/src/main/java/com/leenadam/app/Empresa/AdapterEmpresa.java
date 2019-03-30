@@ -30,7 +30,7 @@ public class AdapterEmpresa extends FirestoreAdapter<AdapterEmpresa.ViewHolder> 
 
     private OnRestaurantSelectedListener mListener;
 
-    public AdapterEmpresa (Query query, OnRestaurantSelectedListener listener) {
+    public AdapterEmpresa(Query query, OnRestaurantSelectedListener listener) {
         super(query);
         mListener = listener;
     }
@@ -60,41 +60,30 @@ public class AdapterEmpresa extends FirestoreAdapter<AdapterEmpresa.ViewHolder> 
         /*
         @BindView(R.id.restaurantItemImage)
         ImageView imageView;
-
         @BindView(R.id.restaurantItemName)
         TextView nameView;
-
         @BindView(R.id.restaurantItemRating)
         MaterialRatingBar ratingBar;
-
         @BindView(R.id.restaurantItemNumRatings)
         TextView numRatingsView;
-
         @BindView(R.id.restaurantItemPrice)
         TextView priceView;
-
         @BindView(R.id.restaurantItemCategory)
         TextView categoryView;
-
         @BindView(R.id.restaurantItemCity)
         TextView cityView;
-
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-
         public void bind(final DocumentSnapshot snapshot,
                          final OnRestaurantSelectedListener listener) {
-
             Restaurant restaurant = snapshot.toObject(Restaurant.class);
             Resources resources = itemView.getResources();
-
             // Load image
             Glide.with(imageView.getContext())
                     .load(restaurant.getPhoto())
                     .into(imageView);
-
             nameView.setText(restaurant.getName());
             ratingBar.setRating((float) restaurant.getAvgRating());
             cityView.setText(restaurant.getCity());
@@ -102,7 +91,6 @@ public class AdapterEmpresa extends FirestoreAdapter<AdapterEmpresa.ViewHolder> 
             numRatingsView.setText(resources.getString(R.string.fmt_num_ratings,
                     restaurant.getNumRatings()));
             priceView.setText(RestaurantUtil.getPriceString(restaurant));
-
             // Click listener
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

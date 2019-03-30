@@ -15,9 +15,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Informações Gerais"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="Informações Gerais" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -32,753 +32,773 @@
             android:layout_margin="16dp"
             app:contentPadding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-<!--
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="I - IDENTIFICADOR DO EMPREENDEDOR"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="Empresa Outorgada"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_denominacao"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Denominação"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_idagente"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Identificador ANEEL do agente"
-                                android:inputType="text"
-                                android:textSize="18sp" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="Representante Legal da Empresa"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_nomerepresentante"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Nome"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_emailrepresentante"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Email"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_telefonerepresentante"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Telefone"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="Responsável Técnico pela Segurança da Barragem"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_nomeresptecnico"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Nome"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_emailresptecnico"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Email"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_telefoneresptecnico"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Telefone"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="Informações para Correspondência da Empresa Outorgada"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_enderecocorrep"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Endereço"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_municipiocorrep"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Município"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_ufcorrep"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="UF"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_cepcorrep"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="CEP"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="II - DADOS TÉCNICOS REFERENTES AO EMPREENDIMENTO"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="Empreendimento"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_potenciausina"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Potência outorgada da usina (MW)"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_nomerio"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Nome do rio"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_municipiousina"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Município"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_ufusina"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="UF"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_capacidadereservatorio"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Capacidade total do reservatório (m³)"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_primeiroenchimento"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Data do 1º enchimento do reservatório"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_numerobarramento"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Nº total de barramentos da usina"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="III - DADOS TÉCNICOS REFERENTES AO BARRAMENTO"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_tipobarramento"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Selecione o tipo de barramento"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_nomedobarramento"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Nome do barramento"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_dataconclusaobarramento"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Data de conclusão"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_latitude"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Latitude"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_longitude"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Longitude"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_alturamacico"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Altura do maciço (m)"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/TextInputEditText_comprimentomacico"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Comprimento do barramento (m)"
-                                android:inputType="text" />
-
-                        </android.support.design.widget.TextInputLayout>
--->
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="IV - OBRIGAÇÕES NORMATIVAS REFERENTES AO BARRAMENTO"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Plano de Segurança da Barragem (PSB) elaborado?"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radio_sim"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="Sim"
-                    android:textSize="14sp" />
-
-                <RadioButton
-                    android:id="@+id/radio_nao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="Não" />
-
-                <RadioButton
-                    android:id="@+id/radio_naoseaplica"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="N.A." />
-            </RadioGroup>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_dataconclusaopsb"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Data de conclusão PSB"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Plano de Ação de Emergência (PAE) elaborado?"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radio_sim1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="Sim" />
-                <RadioButton android:id="@+id/radio_nao1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Não"
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-                <RadioButton android:id="@+id/radio_naoseaplica1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="N.A."
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-            </RadioGroup>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_dataconclusaopae"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Data de conclusão PAE"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Plano de Ação de Emergência (PAE) protocolado na Defesa Civil/Prefeitura?"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radio_sim2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="Sim" />
-                <RadioButton android:id="@+id/radio_nao2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Não"
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-                <RadioButton android:id="@+id/radio_naoseaplica2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="N.A."
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-            </RadioGroup>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_dataprotocolopae"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Data de protocolo PAE"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Plano de Segurança Regular (ISR) realizada?"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radio_sim3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="Sim" />
-                <RadioButton android:id="@+id/radio_nao3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Não"
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-                <RadioButton android:id="@+id/radio_naoseaplica3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="N.A."
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-            </RadioGroup>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_dataconclusaoisr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Data de conclusão ISR"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Inspeção de Segurança Especial (ISE) realizada?"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radio_sim4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="Sim" />
-                <RadioButton android:id="@+id/radio_nao4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Não"
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-                <RadioButton android:id="@+id/radio_naoseaplica4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="N.A."
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-            </RadioGroup>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/TextInputEditText_dataconclusaoise"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Data de conclusão ISE"
-                    android:inputType="text"
-                    android:textSize="14sp"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Nível de Segurança de Barragem"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/radio_normal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="Normal" />
-                <RadioButton android:id="@+id/radio_atencao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Atenção"
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-                <RadioButton android:id="@+id/radio_alerta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Alerta"
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-                <RadioButton android:id="@+id/radio_emergencia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Emergência"
-                    android:onClick="onRadioButtonClicked"
-                    android:layout_weight="1"/>
-            </RadioGroup>
+                <!--
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="I - IDENTIFICADOR DO EMPREENDEDOR"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/button2"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginBottom="20dp"
-                android:text="Inserir" />
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="Empresa Outorgada"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_denominacao"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Denominação"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_idagente"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Identificador ANEEL do agente"
+                                                android:inputType="text"
+                                                android:textSize="18sp" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="Representante Legal da Empresa"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_nomerepresentante"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Nome"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_emailrepresentante"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Email"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_telefonerepresentante"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Telefone"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="Responsável Técnico pela Segurança da Barragem"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_nomeresptecnico"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Nome"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_emailresptecnico"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Email"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_telefoneresptecnico"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Telefone"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="Informações para Correspondência da Empresa Outorgada"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_enderecocorrep"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Endereço"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_municipiocorrep"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Município"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_ufcorrep"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="UF"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_cepcorrep"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="CEP"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="II - DADOS TÉCNICOS REFERENTES AO EMPREENDIMENTO"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="Empreendimento"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_potenciausina"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Potência outorgada da usina (MW)"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_nomerio"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Nome do rio"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_municipiousina"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Município"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_ufusina"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="UF"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_capacidadereservatorio"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Capacidade total do reservatório (m³)"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_primeiroenchimento"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Data do 1º enchimento do reservatório"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_numerobarramento"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Nº total de barramentos da usina"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="4dp"
+                                            android:text="III - DADOS TÉCNICOS REFERENTES AO BARRAMENTO"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp" />
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_tipobarramento"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Selecione o tipo de barramento"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_nomedobarramento"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Nome do barramento"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_dataconclusaobarramento"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Data de conclusão"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_latitude"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Latitude"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_longitude"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Longitude"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_alturamacico"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Altura do maciço (m)"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+
+                                        <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <android.support.design.widget.TextInputEditText
+                                                android:id="@+id/TextInputEditText_comprimentomacico"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:hint="Comprimento do barramento (m)"
+                                                android:inputType="text" />
+
+                                        </android.support.design.widget.TextInputLayout>
+                -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="IV - OBRIGAÇÕES NORMATIVAS REFERENTES AO BARRAMENTO"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Plano de Segurança da Barragem (PSB) elaborado?"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_sim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Sim"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/radio_nao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Não" />
+
+                    <RadioButton
+                        android:id="@+id/radio_naoseaplica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="N.A." />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_dataconclusaopsb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data de conclusão PSB"
+                        android:inputType="text"
+                        android:textSize="14sp" />
 
 
-        </LinearLayout>
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Plano de Ação de Emergência (PAE) elaborado?"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_sim1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Sim" />
+
+                    <RadioButton
+                        android:id="@+id/radio_nao1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Não" />
+
+                    <RadioButton
+                        android:id="@+id/radio_naoseaplica1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="N.A." />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_dataconclusaopae"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data de conclusão PAE"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Plano de Ação de Emergência (PAE) protocolado na Defesa Civil/Prefeitura?"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_sim2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Sim" />
+
+                    <RadioButton
+                        android:id="@+id/radio_nao2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Não" />
+
+                    <RadioButton
+                        android:id="@+id/radio_naoseaplica2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="N.A." />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_dataprotocolopae"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data de protocolo PAE"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Plano de Segurança Regular (ISR) realizada?"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_sim3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Sim" />
+
+                    <RadioButton
+                        android:id="@+id/radio_nao3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Não" />
+
+                    <RadioButton
+                        android:id="@+id/radio_naoseaplica3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="N.A." />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_dataconclusaoisr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data de conclusão ISR"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Inspeção de Segurança Especial (ISE) realizada?"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_sim4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Sim" />
+
+                    <RadioButton
+                        android:id="@+id/radio_nao4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Não" />
+
+                    <RadioButton
+                        android:id="@+id/radio_naoseaplica4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="N.A." />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_dataconclusaoise"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data de conclusão ISE"
+                        android:inputType="text"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Nível de Segurança de Barragem"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Normal" />
+
+                    <RadioButton
+                        android:id="@+id/radio_atencao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Atenção" />
+
+                    <RadioButton
+                        android:id="@+id/radio_alerta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Alerta" />
+
+                    <RadioButton
+                        android:id="@+id/radio_emergencia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Emergência" />
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Inserir" />
+
+
+            </LinearLayout>
 
         </android.support.design.card.MaterialCardView>
 
 
     </android.support.v4.widget.NestedScrollView>
-
 
 
 </android.support.design.widget.CoordinatorLayout>

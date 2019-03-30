@@ -7,7 +7,6 @@ public class DadosBarramento {
     private String nomeBarramento;
     private String dataConclusaoBarramento;
 
-
     //Verificar como colocar as coordenadas geográficas com: grau, minuto, segundo e as direções norte, sul e oeste segundo o FSB!
     private double coordenadasGeograficasBarramento;
     private double latitudeBarramento; //grau, minuto e segundo - Norte e Sul
