@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name">
@@ -22,25 +21,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity android:name=".Empresa.ActivityInserirEmpresa" />
         <activity android:name=".Usina.ActivityInserirUsina" />
         <activity android:name=".Barramento.ActivityInserirBarramento" />
-
         <activity android:name=".Empresa.ActivityListaEmpresas" />
         <activity android:name=".Declaracoes.ActivityDeclaracoes" />
         <activity android:name=".MatrizClassificacao.ActivityMatrizClassificacao" />
         <activity
             android:name=".InfoGeral.ActivityInfoGerais"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" /> <!--  -->
         <activity android:name=".Usuario.LoginActivity" />
         <activity android:name=".Usuario.SplashScreen" />
         <activity android:name=".TesteBancoActivity" />
         <activity android:name=".Usuario.CadastroActivity" />
-        <activity android:name=".activity.PrincipalActivity"/>
-
+        <activity android:name=".activity.PrincipalActivity" />
+        <activity android:name=".fragments.PrincipalFragment"/>
+        <activity android:name=".activity.SobreActivity" />
     </application>
 
 </manifest>

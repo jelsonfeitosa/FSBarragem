@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import com.leenadam.app.R;
 
+//Futuramente, testar se dá pra inserir a splash screen antes dos sliders! Senão, remove isso!
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -22,6 +24,7 @@ public class SplashScreen extends AppCompatActivity {
         }, 2000);
     }
 
+    //Caso consiga implementar o splash screen antes dos sliders, refatorar o nome deste metodo para "mostrarSliders", por exemplo
     private void mostrarLogin() {
         Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
         startActivity(intent);
