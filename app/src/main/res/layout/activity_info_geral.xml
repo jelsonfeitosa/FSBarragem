@@ -447,7 +447,7 @@
                     android:padding="4dp"
                     android:text="IV - OBRIGAÇÕES NORMATIVAS REFERENTES AO BARRAMENTO"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -456,7 +456,7 @@
                     android:padding="4dp"
                     android:text="Plano de Segurança da Barragem (PSB) elaborado?"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -514,7 +514,7 @@
                     android:padding="4dp"
                     android:text="Plano de Ação de Emergência (PAE) elaborado?"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -570,7 +570,7 @@
                     android:padding="4dp"
                     android:text="Plano de Ação de Emergência (PAE) protocolado na Defesa Civil/Prefeitura?"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -626,7 +626,7 @@
                     android:padding="4dp"
                     android:text="Plano de Segurança Regular (ISR) realizada?"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -682,7 +682,7 @@
                     android:padding="4dp"
                     android:text="Inspeção de Segurança Especial (ISE) realizada?"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -738,7 +738,7 @@
                     android:padding="4dp"
                     android:text="Nível de Segurança de Barragem"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"

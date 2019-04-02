@@ -38,6 +38,7 @@
         <activity android:name=".activity.PrincipalActivity" />
         <activity android:name=".fragments.PrincipalFragment"/>
         <activity android:name=".activity.SobreActivity" />
+        <activity android:name=".activity.CreditosActivity" />
     </application>
 
 </manifest>

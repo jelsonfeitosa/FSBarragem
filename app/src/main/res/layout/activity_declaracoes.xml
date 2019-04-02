@@ -43,7 +43,7 @@
                     android:padding="4dp"
                     android:text="Anotação de Responsabilidade Técnica - ART"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <android.support.v7.widget.AppCompatCheckBox
@@ -61,7 +61,7 @@
                     android:padding="4dp"
                     android:text="Declaração do Representante Legal"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <android.support.v7.widget.AppCompatCheckBox
@@ -110,7 +110,7 @@
                     android:padding="4dp"
                     android:text="Representante Legal da Empresa"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <android.support.design.widget.TextInputLayout
@@ -165,7 +165,7 @@
                     android:padding="4dp"
                     android:text="Responsável Técnico pela Segurança da Barragem"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <android.support.design.widget.TextInputLayout

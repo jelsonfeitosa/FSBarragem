@@ -24,6 +24,7 @@ import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
 import com.leenadam.app.Usina.ActivityInserirUsina;
 import com.leenadam.app.config.ConfiguracaoFirebase;
+import com.leenadam.app.fragments.FormularioFragment;
 import com.leenadam.app.fragments.PrincipalFragment;
 
 public class PrincipalActivity extends AppCompatActivity
@@ -56,7 +57,7 @@ public class PrincipalActivity extends AppCompatActivity
         // Isso faz com que, por padrão, sempre carregue o fragment da empresa, caso contrario não apareceria nada... poderia ser outra!
         PrincipalFragment principalFragment = new PrincipalFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frameContainer, principalFragment );
+        fragmentTransaction.replace(R.id.frameContainer, principalFragment);
         fragmentTransaction.commit();
 
     }
@@ -81,25 +82,28 @@ public class PrincipalActivity extends AppCompatActivity
 
         if (id == R.id.nav_principal) {
 
-            //CameraFragment cameraFragment = new CameraFragment();
-            //FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            //fragmentTransaction.replace(R.id.frameContainer, cameraFragment );
-            //fragmentTransaction.commit();
+            PrincipalFragment principalFragment = new PrincipalFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameContainer, principalFragment);
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_configuracoes) {
+
+        } else if (id == R.id.nav_creditos) {
+            startActivity(new Intent(this, CreditosActivity.class));
 
         } else if (id == R.id.nav_contato) {
             enviarEmail();
 
         } else if (id == R.id.nav_sobre) {
-            startActivity( new Intent(this, SobreActivity.class ) );
+            startActivity(new Intent(this, SobreActivity.class));
 
-        }else if (id == R.id.nav_formularios) {
+        } else if (id == R.id.nav_formularios) {
 
-            //EmpresaFragment empresaFragment = new EmpresaFragment();
-            //FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            //fragmentTransaction.replace(R.id.frameContainer, empresaFragment );
-            //fragmentTransaction.commit();
+            FormularioFragment formularioFragment = new FormularioFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameContainer, formularioFragment);
+            fragmentTransaction.commit();
 
         }
 
@@ -108,27 +112,21 @@ public class PrincipalActivity extends AppCompatActivity
         return true;
     }
 
-    public void enviarEmail(){
+    public void enviarEmail() {
 
-        Intent email = new Intent( Intent.ACTION_SEND );
-        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"fsbarragem@gmail.com" } ); //aqui temos um array onde é possível configurar vários email's, neste caso utilizou-se apenas 01 email!
-        email.putExtra(Intent.EXTRA_SUBJECT, "Aplicativo FSBarragem" ); // para o título da mensagem
-        email.putExtra(Intent.EXTRA_TEXT, "Digite sua mensagem aqui" ); // a mensagem do email
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"fsbarragem@gmail.com"}); //aqui temos um array onde é possível configurar vários email's, neste caso utilizou-se apenas 01 email!
+        email.putExtra(Intent.EXTRA_SUBJECT, "Aplicativo FSBarragem"); // para o título da mensagem
+        email.putExtra(Intent.EXTRA_TEXT, "Digite sua mensagem aqui"); // a mensagem do email
 
         //configurar apps para e-mail
         email.setType("message/rfc822"); // esse código permite ao app abrir apenas aplicativos de email existentes no device
         //email.setType("application/pdf");
         //email.setType("image/png");
 
-        startActivity( Intent.createChooser(email, "Escolha o aplicativo de e-mail:" ) ); // Permite ao usuário escolher o aplicativo que deseja utilizar
-
+        startActivity(Intent.createChooser(email, "Escolha o aplicativo de e-mail:")); // Permite ao usuário escolher o aplicativo que deseja utilizar
 
     }
-
-
-
-
-
 
 
     //métodos chamados pelo floating action menu
@@ -143,7 +141,6 @@ public class PrincipalActivity extends AppCompatActivity
     public void adicionarBarramento(View view) {
         startActivity(new Intent(this, ActivityInserirBarramento.class));
     }
-
 
 
     @Override

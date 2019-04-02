@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <!--<style name="AppTheme" parent="Base.Theme.MaterialComponents.Light.DarkActionBar">-->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -18,11 +17,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-<!-- Comentei este bloco porque não esta sendo utilizado...se ativar a splash screen talvez dê problemas sem esse bloco...
-    <style name="AppCompat.TelaCheia" parent="Base.Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowFullscreen">true</item>
-    </style>
-
--->
-
+    <!-- Comentei este bloco porque não esta sendo utilizado...se ativar a splash screen talvez dê problemas sem esse bloco...
+        <style name="AppCompat.TelaCheia" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+            <item name="android:windowFullscreen">true</item>
+        </style>
+    -->
 </resources>

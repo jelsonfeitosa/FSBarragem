@@ -43,6 +43,10 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     private Button buttonEnviar;
 
     private TextView textResultado;
+    private TextView textResultadoAltura;
+    private TextView textResultadoReservatorio;
+    private TextView textResultadoPotencial;
+    private TextView textResultadoEnquadramento;
 
     private AwesomeSpinner AwesomeSpinnerAltura;
     private AwesomeSpinner AwesomeSpinnerComprimento;
@@ -64,7 +68,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     private AwesomeSpinner AwesomeSpinnerProcedimentosRoteiros;
     private AwesomeSpinner AwesomeSpinnerRegraOperacional;
     private AwesomeSpinner AwesomeSpinnerRelatoriosInspecao;
-    /**/
+
     private AwesomeSpinner AwesomeSpinnerVolumeReservatorio;
     private AwesomeSpinner AwesomeSpinnerPotencialPerdasVidas;
     private AwesomeSpinner AwesomeSpinnerImpactoAmbiental;
@@ -90,7 +94,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     private List<String> listaProcedimentosRoteiros = new ArrayList<String>();
     private List<String> listaRegraOperacional = new ArrayList<String>();
     private List<String> listaRelatoriosInspecao = new ArrayList<String>();
-    /**/
+
     private List<String> listaVolumeReservatorio = new ArrayList<String>();
     private List<String> listaPotenciaPerdasVidas = new ArrayList<String>();
     private List<String> listaImpactoAmbiental = new ArrayList<String>();
@@ -126,6 +130,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_matriz_classificacao);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -158,13 +163,12 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         AwesomeSpinnerDeterioracaoTaludesParamentos = findViewById(R.id.AwesomeSpinnerDeterioracaoTaludesParamentos);
         AwesomeSpinnerEclusa = findViewById(R.id.AwesomeSpinnerEclusa);
 
-
         AwesomeSpinnerExistenciaDocProjeto = findViewById(R.id.AwesomeSpinnerExistenciaDocProjeto);
         AwesomeSpinnerEstrutOrganizacional = findViewById(R.id.AwesomeSpinnerEstrutOrganizacional);
         AwesomeSpinnerProcedimentosRoteiros = findViewById(R.id.AwesomeSpinnerProcedimentosRoteiros);
         AwesomeSpinnerRegraOperacional = findViewById(R.id.AwesomeSpinnerRegraOperacional);
         AwesomeSpinnerRelatoriosInspecao = findViewById(R.id.AwesomeSpinnerRelatoriosInspecao);
-        /**/
+
         AwesomeSpinnerVolumeReservatorio = findViewById(R.id.AwesomeSpinnerVolumeReservatorio);
         AwesomeSpinnerPotencialPerdasVidas = findViewById(R.id.AwesomeSpinnerPotencialPerdasVidas);
         AwesomeSpinnerImpactoAmbiental = findViewById(R.id.AwesomeSpinnerImpactoAmbiental);
@@ -173,6 +177,16 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         buttonEnviar = findViewById(R.id.buttonEnviar);
 
         textResultado = findViewById(R.id.textResultado);
+        textResultadoAltura = findViewById(R.id.textResultadoAltura);
+        textResultadoReservatorio = findViewById(R.id.textResultadoReservatorio);
+        textResultadoPotencial = findViewById(R.id.textResultadoPotencial);
+        textResultadoEnquadramento = findViewById(R.id.textResultadoEnquadramento);
+
+
+        //Modify styles of spinner - remover após testes
+        //AwesomeSpinnerAltura.setHintTextColor(Color.GRAY);//If you need to change the Spinner Hint Text color
+        //AwesomeSpinnerAltura.setSelectedItemHintColor(Color.BLACK);//If you need to change the Selected Item Hint color
+        //AwesomeSpinnerAltura.setDownArrowTintColor(Color.GRAY);//If you need to change the Down Arrow hint color
 
 
         CarregarDadosMatriz("1_Caracteristicas_Tecnicas_CT", "a_Altura", listaAltura, AwesomeSpinnerAltura);
@@ -195,7 +209,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         CarregarDadosMatriz("3_Plano_de_seguranca_da_Barragem_PS", "p_Procedimentos_Roteiros", listaProcedimentosRoteiros, AwesomeSpinnerProcedimentosRoteiros);
         CarregarDadosMatriz("3_Plano_de_seguranca_da_Barragem_PS", "q_Regra_Operacional", listaRegraOperacional, AwesomeSpinnerRegraOperacional);
         CarregarDadosMatriz("3_Plano_de_seguranca_da_Barragem_PS", "r_Relatorios_de_Inspecao", listaRelatoriosInspecao, AwesomeSpinnerRelatoriosInspecao);
-        /**/
+
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "a_Volume_Total_Reservatorio", listaVolumeReservatorio, AwesomeSpinnerVolumeReservatorio);
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "b_Potencial_Perdas_Vidas", listaPotenciaPerdasVidas, AwesomeSpinnerPotencialPerdasVidas);
         CarregarDadosMatriz("4_Dano_Potencial_Associado_DPA", "c_Impacto_Ambiental", listaImpactoAmbiental, AwesomeSpinnerImpactoAmbiental);
@@ -432,7 +446,6 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
 
 
         //Matriz Estado de Conservação - EC
-
         AwesomeSpinnerConfiabEstrutExtravasoras.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
             @Override
             public void onItemSelected(int position, String itemAtPosition) {
@@ -925,7 +938,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
             }
         });
 
-
+        /*---------------------------------Processamento dos dados para classificação do barramento----------------------------------*/
         buttonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1016,6 +1029,61 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
 
                 Log.i("DPA ", "O resultado é: " + somatorioDpa + " | Classificação: " + dpaResult);
 
+
+                //Enquadramento Resolução nº 696 de 2015
+
+                String enquadramentoAltura = "";
+                /*...em desenvolvimento*/
+                //Atenção: O barramento possui xx,xx m. Escolha a faixa de altura adequada!
+                Double alturaMacico = 14.3;//esse valor deve vir do barramento cadastrado "Altura do maciço (m)"
+
+                if (alturaMacico >= 15) {
+                    enquadramentoAltura = "Sim";
+                } else {
+                    enquadramentoAltura = "Não";
+                }
+
+                textResultadoAltura.setText(String.valueOf(enquadramentoAltura + " | (Altura: " + alturaMacico + " m)"));
+
+
+                String enquadramentoReservatorio = "";
+                /*...em desenvolvimento*/
+                Double volumeReservatorio = 3000000.00;//esse valor deve vir da usina cadastrada "Capacidade total do reservatório (m³)"
+
+                if (volumeReservatorio >= 3000000) {
+                    enquadramentoReservatorio = "Sim";
+                } else {
+                    enquadramentoReservatorio = "Não";
+                }
+
+                textResultadoReservatorio.setText(String.valueOf(enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)"));
+
+
+                String enquadramentoPotencial = "";
+
+                if ((dpaResult == "Médio") || (dpaResult == "Alto")) {
+                    enquadramentoPotencial = "Sim";
+                } else {
+                    enquadramentoPotencial = "Não";
+                }
+
+                textResultadoPotencial.setText(String.valueOf(enquadramentoPotencial + " | (DPA: " + dpaResult + ")"));
+
+
+                String enquadramentoResultado = "";
+
+                String sim = "Positivo. O barramento enquadra na Resolução nº 696/2015.";
+                String nao = "Negativo. O barramento não enquadra na Resolução nº 696/2015.";
+
+                if (enquadramentoAltura == "Sim" || enquadramentoReservatorio == "Sim") {
+                    enquadramentoResultado = sim;
+                } else {
+                    enquadramentoResultado = (enquadramentoPotencial == "Sim") ? sim : nao;
+                }
+
+                textResultadoEnquadramento.setText(String.valueOf(enquadramentoResultado));
+
+
                 //Resultado da Classificação
                 String resultadoClassificacao = "";
 
@@ -1031,7 +1099,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     resultadoClassificacao = "C";
                 }
 
-                textResultado.setText(String.valueOf("O resultado da Classificação é: \n Barramento Classe: "
+                textResultado.setText(String.valueOf("Barramento Classe: "
                         + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
                         + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa));//Resultado
 
@@ -1043,7 +1111,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
 
     }
 
-
+    /*----------------------------------------Carregamento de dados armazenados no firebase-------------------------------------------*/
     private void CarregarDadosMatriz(String tipoMatriz, String conjuntoItens, final List<String> listaDados,
                                      final AwesomeSpinner spinner) {
 
@@ -1088,7 +1156,7 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                 });
     }
 
-
+    /*-----------------------------------------------------------Menu-----------------------------------------------------------------*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
