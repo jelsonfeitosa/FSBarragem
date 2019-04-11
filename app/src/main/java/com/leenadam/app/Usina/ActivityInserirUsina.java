@@ -41,6 +41,7 @@ public class ActivityInserirUsina extends AppCompatActivity {
         setContentView(R.layout.activity_inserir_usina);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextInputEditText_nomeusina = findViewById(R.id.TextInputEditText_nomeusina);
         TextInputEditText_idusina = findViewById(R.id.TextInputEditText_idusina);
@@ -140,6 +141,12 @@ public class ActivityInserirUsina extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            finish();//encerra a activity
+            return true;
+
+        }
+
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
             return true;

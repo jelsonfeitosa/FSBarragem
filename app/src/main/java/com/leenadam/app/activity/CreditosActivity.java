@@ -24,12 +24,12 @@ public class CreditosActivity extends AppCompatActivity {
                 "\n" +
                 "Aviso: Nem o autor, nem a UFRR são responsáveis pelo uso ou mau uso do aplicativo e de seus resultados. Os acima mencionados não têm nenhum dever legal ou responsabilidade para com qualquer pessoa ou companhia pelos danos causados direta ou indiretamente resultantes do uso de alguma informação ou do uso do aplicativo aqui disponibilizado. O usuário é responsável por toda ou qualquer conclusão feita com o uso do aplicativo. Não existe nenhum compromisso de bom funcionamento ou qualquer garantia.";
 
-        View sobre = new AboutPage(this)
+        View creditos = new AboutPage(this)
                 .setImage(R.drawable.creditos_app)
                 .setDescription(descricao)
                 .create();
 
-        setContentView(sobre);
+        setContentView(creditos);
 
     }
 }

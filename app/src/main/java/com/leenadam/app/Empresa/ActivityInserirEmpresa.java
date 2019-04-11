@@ -64,6 +64,7 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         setContentView(R.layout.activity_inserir_empresa);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//adiciona o botão "up navigation"
 
 
         // Página de configuração do Banco de dados - Conexão
@@ -271,6 +272,12 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            finish();//encerra a activity
+            return true;
+
+        }
+
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
             return true;

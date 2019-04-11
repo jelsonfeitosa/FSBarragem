@@ -61,6 +61,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         setContentView(R.layout.activity_inserir_barramento);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         TextInputEditText_tipobarramento = findViewById(R.id.TextInputEditText_tipobarramento);
@@ -146,6 +147,12 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            finish();//encerra a activity
+            return true;
+
+        }
+
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
             return true;
