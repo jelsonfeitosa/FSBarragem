@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoGeral.ActivityInfoGerais">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="Classificação Expedita" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:contentPadding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Dado Técnico do Barramento"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_alturabarramento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Altura do maciço (m)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="Dado Técnico da Usina"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/TextInputEditText_capacidadeusina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Capacidade total do reservatório (m³)"
+                        android:inputType="numberDecimal"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Categoria de Risco - CR"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="4dp"
+                    android:text="1 - Características Técnicas - CT"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerAltura"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Altura (a)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerComprimento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Comprimento (b)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerTipoBarragem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Tipo de Barragem (c)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerTipoFundacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Tipo de fundação (d)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerIdadeBarragem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Idade da Barragem (e)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerVazaoProjeto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Vazão de projeto (f)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerCasaForca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Casa de Força (g)" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:padding="4dp"
+                    android:text="2 - Estado de Conservação - EC"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerConfiabEstrutExtravasoras"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Confiabilidade das Estruturas Extravasoras (h)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerConfiabEstrutAducao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Confiabilidade das Estruturas de Adução (i)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerPercolacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Percolação (j)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerDeformacoesRecalques"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Deformações e Recalques (k)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerDeterioracaoTaludesParamentos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Deterioração dos Taludes / Paramentos (l)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerEclusa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Eclusa (m)" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:padding="4dp"
+                    android:text="3 - Plano de Segurança da Barragem - PS"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerExistenciaDocProjeto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Existência de documentação de projeto (n)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerEstrutOrganizacional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Estrutura organizacional e qualificação técnica dos profissionais da equipe de Segurança da Barragem (o)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerProcedimentosRoteiros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Procedimentos de roteiros de inspeções de segurança e de monitoramento(p)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerRegraOperacional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Regra operacional dos dispositivos de descarga da barragem(q)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerRelatoriosInspecao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Relatórios de inspeção de segurança com análise e interpretação(r)" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="Dano Potencial Associado - DPA"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerVolumeReservatorio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Volume Total do Reservatório (a)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerPotencialPerdasVidas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Potencial de perdas de vidas humanas (b)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerImpactoAmbiental"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Impacto ambiental (c)" />
+
+                <com.isapanah.awesomespinner.AwesomeSpinner
+                    android:id="@+id/AwesomeSpinnerImpactoSocioEconomico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@color/corClara"
+                    app:spinnerDirection="ltr"
+                    app:spinnerHint="Impacto sócio-econômico (d)" />
+                <!--Remover essa parte no futuro ... deixar só pra aparecer nos resultados! a tela da matriz de classificação ficará mais clean-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCancelar"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:text="Cancelar" />
+
+                    <Button
+                        android:id="@+id/btnClassificar"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:text="Classificar" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.design.card.MaterialCardView>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

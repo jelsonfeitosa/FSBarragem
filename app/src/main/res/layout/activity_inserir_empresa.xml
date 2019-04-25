@@ -146,7 +146,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="CEP"
-                        android:inputType="text"
+                        android:inputType="textPostalAddress"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -171,7 +171,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nome"
-                        android:inputType="text"
+                        android:inputType="textPersonName"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -186,7 +186,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Email"
-                        android:inputType="text"
+                        android:inputType="textEmailAddress"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -201,7 +201,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Telefone"
-                        android:inputType="text"
+                        android:inputType="phone"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -225,7 +225,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nome"
-                        android:inputType="text"
+                        android:inputType="textPersonName"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -240,7 +240,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Email"
-                        android:inputType="text"
+                        android:inputType="textEmailAddress"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -255,13 +255,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Telefone"
-                        android:inputType="text"
+                        android:inputType="phone"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btnEmpresa"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -269,7 +269,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="70dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Inserir" />
+                    android:text="Avançar" />
 
             </LinearLayout>
 

@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
@@ -124,12 +127,24 @@ public class ActivityInserirUsina extends AppCompatActivity {
         });
 */
 
+        Button button = findViewById(R.id.btnUsina);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), ActivityInserirBarramento.class));
+
+                Toast.makeText(getApplicationContext(), "Usina cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_activities, menu);
         return true;
     }
 

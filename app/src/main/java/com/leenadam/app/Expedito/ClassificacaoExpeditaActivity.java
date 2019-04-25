@@ -1,15 +1,17 @@
-package com.leenadam.app.MatrizClassificacao;
+package com.leenadam.app.Expedito;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,7 +21,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
-
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.isapanah.awesomespinner.AwesomeSpinner;
@@ -27,26 +28,31 @@ import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
-import com.leenadam.app.activity.MainActivity;
+import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.Usina.ActivityInserirUsina;
+import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.util.ModoValorDesc;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityMatrizClassificacao extends AppCompatActivity {
+public class ClassificacaoExpeditaActivity extends AppCompatActivity {
 
     protected static final String TAG = "MatrizClassificao";
     private FirebaseFirestore mFirestore;
 
-    private Button buttonEnviar;
+    private Button btnClassificar;
+    private Button btnCancelar;
 
     private TextView textResultado;
     private TextView textResultadoAltura;
     private TextView textResultadoReservatorio;
     private TextView textResultadoPotencial;
     private TextView textResultadoEnquadramento;
+
+    private TextInputEditText TextInputEditText_alturabarramento;
+    private TextInputEditText TextInputEditText_capacidadeusina;
 
     private AwesomeSpinner AwesomeSpinnerAltura;
     private AwesomeSpinner AwesomeSpinnerComprimento;
@@ -126,27 +132,27 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
     String recordU = "";
     String recordV = "";
 
+    private ResultadoExpedito resultadoExpedito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_matriz_classificacao);
+        setContentView(R.layout.activity_classificacao_expedita);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         Log.d(TAG, "Matriz iniciada");
 
-        // Access a Cloud Firestore instance from your Activity
-
         FirebaseFirestore.setLoggingEnabled(true);
-        // Página de configuração do Banco de dados - Conexão
         mFirestore = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)
                 .setTimestampsInSnapshotsEnabled(true)
                 .build();
         mFirestore.setFirestoreSettings(settings);
+
+        TextInputEditText_alturabarramento = findViewById(R.id.TextInputEditText_alturabarramento);
+        TextInputEditText_capacidadeusina = findViewById(R.id.TextInputEditText_capacidadeusina);
 
         AwesomeSpinnerAltura = findViewById(R.id.AwesomeSpinnerAltura);
         AwesomeSpinnerComprimento = findViewById(R.id.AwesomeSpinnerComprimento);
@@ -174,7 +180,8 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
         AwesomeSpinnerImpactoAmbiental = findViewById(R.id.AwesomeSpinnerImpactoAmbiental);
         AwesomeSpinnerImpactoSocioEconomico = findViewById(R.id.AwesomeSpinnerImpactoSocioEconomico);
 
-        buttonEnviar = findViewById(R.id.buttonEnviar);
+        btnClassificar = findViewById(R.id.btnClassificar);
+        btnCancelar = findViewById(R.id.btnCancelar);
 
         textResultado = findViewById(R.id.textResultado);
         textResultadoAltura = findViewById(R.id.textResultadoAltura);
@@ -938,10 +945,17 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
             }
         });
 
-        /*---------------------------------Processamento dos dados para classificação do barramento----------------------------------*/
-        buttonEnviar.setOnClickListener(new View.OnClickListener() {
+
+
+        /*---------------------------------Chamada da máquina de cálculo----------------------------------*/
+        btnClassificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //maquinaCalculoClassificacao();
+                //abrirResultado("titulo", "mensagem");
+
+
                 //Matriz CT
                 int valorA = Integer.parseInt(recordA);
                 int valorB = Integer.parseInt(recordB);
@@ -1032,10 +1046,22 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
 
                 //Enquadramento Resolução nº 696 de 2015
 
+                //Validar o texto
+                /*
+                if (editNome.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "Preencha o nome",Toast.LENGTH_LONG).show();
+                }else {
+                    String nome = editNome.getText().toString();
+                    editor.putString("nome", nome);
+                    editor.commit();
+
+                    textResultado.setText("Olá, " + nome);
+                }*/
+
+
                 String enquadramentoAltura = "";
-                /*...em desenvolvimento*/
-                //Atenção: O barramento possui xx,xx m. Escolha a faixa de altura adequada!
-                Double alturaMacico = 14.3;//esse valor deve vir do barramento cadastrado "Altura do maciço (m)"
+                Double alturaMacico;
+                alturaMacico = Double.parseDouble(TextInputEditText_alturabarramento.getText().toString());
 
                 if (alturaMacico >= 15) {
                     enquadramentoAltura = "Sim";
@@ -1043,12 +1069,13 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     enquadramentoAltura = "Não";
                 }
 
-                textResultadoAltura.setText(String.valueOf(enquadramentoAltura + " | (Altura: " + alturaMacico + " m)"));
+                Log.i("altura", "Enquadramento altura: " + enquadramentoAltura + " | (Altura: " + alturaMacico + " m)");
+                //textResultadoAltura.setText(String.valueOf(enquadramentoAltura + " | (Altura: " + alturaMacico + " m)"));
 
 
                 String enquadramentoReservatorio = "";
-                /*...em desenvolvimento*/
-                Double volumeReservatorio = 3000000.00;//esse valor deve vir da usina cadastrada "Capacidade total do reservatório (m³)"
+                Double volumeReservatorio;
+                volumeReservatorio = Double.parseDouble(TextInputEditText_capacidadeusina.getText().toString());
 
                 if (volumeReservatorio >= 3000000) {
                     enquadramentoReservatorio = "Sim";
@@ -1056,7 +1083,8 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     enquadramentoReservatorio = "Não";
                 }
 
-                textResultadoReservatorio.setText(String.valueOf(enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)"));
+                Log.i("reservatorio", "Enquadramento reservatório: " + enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)");
+                //textResultadoReservatorio.setText(String.valueOf(enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)"));
 
 
                 String enquadramentoPotencial = "";
@@ -1067,7 +1095,8 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     enquadramentoPotencial = "Não";
                 }
 
-                textResultadoPotencial.setText(String.valueOf(enquadramentoPotencial + " | (DPA: " + dpaResult + ")"));
+                Log.i("reservatorio", "Enquadramento potencial: " + enquadramentoPotencial + " | (DPA: " + dpaResult + ")\n");
+                //textResultadoPotencial.setText(String.valueOf(enquadramentoPotencial + " | (DPA: " + dpaResult + ")"));
 
 
                 String enquadramentoResultado = "";
@@ -1081,8 +1110,10 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     enquadramentoResultado = (enquadramentoPotencial == "Sim") ? sim : nao;
                 }
 
-                textResultadoEnquadramento.setText(String.valueOf(enquadramentoResultado));
-
+                Log.i("enquadramento", "Enquadramento potencial: "
+                        + enquadramentoResultado + " | Altura: " + enquadramentoAltura + ")\n"
+                        + "| Reservatorio: " + enquadramentoReservatorio + ")\n");
+                //textResultadoEnquadramento.setText(String.valueOf(enquadramentoResultado));
 
                 //Resultado da Classificação
                 String resultadoClassificacao = "";
@@ -1099,25 +1130,46 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                     resultadoClassificacao = "C";
                 }
 
+                String resultados = "Enquadramento altura: " + enquadramentoAltura + " | (Altura: " + alturaMacico + " m)\n"
+                        + "Enquadramento reservatório: " + enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)\n"
+                        + "Enquadramento potencial: " + enquadramentoPotencial + " | (DPA: " + dpaResult + ")\n"
+                        + resultadoClassificacao;
+
+
+
+/*
                 textResultado.setText(String.valueOf("Barramento Classe: "
                         + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
                         + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa));//Resultado
-
+*/
                 Log.i("Resultado ", "Classe: " + resultadoClassificacao + " | CRI: " + criResult + " | DPA: " + dpaResult
                         + "\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
 
-            }
-        });
 
-        //Temporário - apenas para efeito de testes
-        Button button = findViewById(R.id.btnClassificacao);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                //Intent
 
-                startActivity(new Intent(getApplicationContext(), ActivityDeclaracoes.class));
+                resultadoExpedito = new ResultadoExpedito();
 
-                Toast.makeText(getApplicationContext(), "Matriz de Classificação preenchida com sucesso.", Toast.LENGTH_SHORT).show();
+                resultadoExpedito.setAlturaMacico(Double.parseDouble(TextInputEditText_alturabarramento.getText().toString()));
+                resultadoExpedito.setVolumeReservatorio(Double.parseDouble(TextInputEditText_capacidadeusina.getText().toString()));
+
+                resultadoExpedito.setCriResult(criResult);
+                resultadoExpedito.setDpaResult(dpaResult);
+
+                resultadoExpedito.setEnquadramentoAltura(enquadramentoAltura);
+                resultadoExpedito.setEnquadramentoReservatorio(enquadramentoReservatorio);
+                resultadoExpedito.setEnquadramentoPotencial(enquadramentoPotencial);
+                resultadoExpedito.setEnquadramentoResultado(enquadramentoResultado);
+                resultadoExpedito.setResultadoClassificacao("Barramento Classe: " + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
+                        + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
+
+
+                //resultadoExpedito.setAwesomeSpinnerConfiabEstrutAducao(AwesomeSpinnerConfiabEstrutAducao.getSelectedItem());
+
+                Intent it = new Intent(ClassificacaoExpeditaActivity.this, TelaResultadoActivity.class);
+                it.putExtra("resultado", resultadoExpedito);
+                startActivity(it);
+
 
             }
         });
@@ -1171,68 +1223,12 @@ public class ActivityMatrizClassificacao extends AppCompatActivity {
                 });
     }
 
-    /*-----------------------------------------------------------Menu-----------------------------------------------------------------*/
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_activities, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    /*---------------------------------Processamento dos dados para classificação do barramento----------------------------------*/
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.menu_inicio) {
-            startActivity(new Intent(this, MainActivity.class));
-            return true;
+    public void maquinaCalculoClassificacao() {
 
-        }
 
-        if (id == R.id.menu_inserirempresa) {
-            startActivity(new Intent(this, ActivityInserirEmpresa.class));
-            return true;
-
-        }
-
-        if (id == R.id.menu_inserirusina) {
-            startActivity(new Intent(this, ActivityInserirUsina.class));
-            return true;
-        }
-
-        if (id == R.id.menu_inserirbarramento) {
-            startActivity(new Intent(this, ActivityInserirBarramento.class));
-            return true;
-        }
-
-        if (id == R.id.menu_infogerais) {
-            startActivity(new Intent(this, ActivityInfoGerais.class));
-            return true;
-        }
-
-        if (id == R.id.menu_matrizclassificacao) {
-            startActivity(new Intent(this, ActivityMatrizClassificacao.class));
-            return true;
-        }
-
-        if (id == R.id.menu_declaracoes) {
-            startActivity(new Intent(this, ActivityDeclaracoes.class));
-            return true;
-        }
-
-        if (id == R.id.action_configuracoes) {
-            return true;
-        }
-
-        if (id == R.id.action_relatorio) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 }

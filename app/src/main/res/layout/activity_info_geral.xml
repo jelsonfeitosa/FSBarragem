@@ -445,7 +445,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="IV - OBRIGAÇÕES NORMATIVAS REFERENTES AO BARRAMENTO"
+                    android:text="OBRIGAÇÕES NORMATIVAS REFERENTES AO BARRAMENTO"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -502,7 +502,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Data de conclusão PSB"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:textSize="14sp" />
 
 
@@ -559,7 +559,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Data de conclusão PAE"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -615,7 +615,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Data de protocolo PAE"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -671,7 +671,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Data de conclusão ISR"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -727,7 +727,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Data de conclusão ISE"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -782,7 +782,7 @@
                 </RadioGroup>
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btnInfoGeral"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -790,7 +790,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="70dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Inserir" />
+                    android:text="Avançar" />
 
 
             </LinearLayout>

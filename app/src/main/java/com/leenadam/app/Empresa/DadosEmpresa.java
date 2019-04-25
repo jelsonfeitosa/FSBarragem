@@ -9,22 +9,28 @@ public class DadosEmpresa {
     private String nomeEmpresa;
     private String idAneelAgente;
 
-    private String nomeRepresentante;
-    private String emailRepresentante;
-    private String telefoneRepresentante;
-
-    private String reponsavelTecnico;
-    private String emailReponsavelTecnico;
-    private String emailResponsavelTecnico;
-    private String telefoneResponsavelTecnico;
-
     private String enderecoEmpresa;
     private String municipio;
     private String estado;
     private String codPostal;
 
+    private String nomeRepresentante;
+    private String emailRepresentante;
+    private String telefoneRepresentante;
+
+    private String reponsavelTecnico;
+    private String emailResponsavelTecnico;
+    private String telefoneResponsavelTecnico;
+
+
     private @ServerTimestamp
     Date dataCriacao;
+
+    //Construtor vazio
+    public DadosEmpresa() {
+    }
+
+    //metodo para salvar empresas
 
     public Date getDataCriacao() {
         return dataCriacao;
@@ -80,14 +86,6 @@ public class DadosEmpresa {
 
     public void setReponsavelTecnico(String reponsavelTecnico) {
         this.reponsavelTecnico = reponsavelTecnico;
-    }
-
-    public String getEmailReponsavelTecnico() {
-        return emailReponsavelTecnico;
-    }
-
-    public void setEmailReponsavelTecnico(String emailReponsavelTecnico) {
-        this.emailReponsavelTecnico = emailReponsavelTecnico;
     }
 
     public String getEmailResponsavelTecnico() {

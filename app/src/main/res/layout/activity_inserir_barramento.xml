@@ -40,6 +40,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
                     android:padding="4dp"
                     android:text="Dados Técnicos do Barramento"
                     android:textColor="@color/black"
@@ -47,48 +48,41 @@
                     android:textStyle="bold" />
 
 
-                <android.support.design.widget.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <TextView
+                    android:id="@+id/textView13"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Tipo do Barramento:"
+                    android:textColor="@color/black" />
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_tipobarramento"
-                        android:layout_width="match_parent"
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <RadioButton
+                        android:id="@+id/radio_barragem"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Tipo do Barramento (Barragem ou Dique)"
-                        android:inputType="text"
-                        android:textSize="14sp" />
-
-
-                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Barragem" />
+                    <!--android:onClick="onRadioButtonClicked"-->
+                    <RadioButton
+                        android:id="@+id/radio_dique"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="0dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp">
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Dique" />
 
-                        <RadioButton
-                            android:id="@+id/radio_barragem"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Barragem" />
-                        <!--android:onClick="onRadioButtonClicked"-->
-                        <RadioButton
-                            android:id="@+id/radio_dique"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Dique" />
-
-                    </RadioGroup>
-
-
-                </android.support.design.widget.TextInputLayout>
+                </RadioGroup>
 
                 <android.support.design.widget.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -115,7 +109,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Data de conclusão do barramento"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -160,7 +154,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Altura do maciço (m)"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -175,13 +169,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Comprimento do barramento (m)"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btnBarramento"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -189,7 +183,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="70dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Inserir" />
+                    android:text="Avançar" />
 
             </LinearLayout>
 

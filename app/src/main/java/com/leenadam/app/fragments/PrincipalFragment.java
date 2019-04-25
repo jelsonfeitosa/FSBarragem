@@ -80,7 +80,7 @@ public class PrincipalFragment extends Fragment implements View.OnClickListener 
                 abrirOps("titulo", "mensagem");
                 break;
 
-            case R.id.buttonAneel:
+            case R.id.buttonAneel://Por enquanto, será direcionado diretamente para a tela de cadastro da empresa. Porém, será mecessário criar uma outra tela na qual ficarão expostas, em um recyclerview, as empresas cadastradas.
                 Intent intent = new Intent(getActivity(), ActivityInserirEmpresa.class);
                 startActivity(intent);
                 break;

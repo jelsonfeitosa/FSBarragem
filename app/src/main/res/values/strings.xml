@@ -28,5 +28,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Formulários</string>
+    <string name="choosee_title">Escolha o aplicativo para abrir:</string>
 
 </resources>

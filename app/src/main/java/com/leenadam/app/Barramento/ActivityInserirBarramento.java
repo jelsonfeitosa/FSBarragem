@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ import com.leenadam.app.Usina.ActivityInserirUsina;
 
 public class ActivityInserirBarramento extends AppCompatActivity {
 
-    private TextInputEditText TextInputEditText_tipobarramento;
+    //private TextInputEditText TextInputEditText_tipobarramento;
 
     private TextInputEditText TextInputEditText_nomebarramento;
     private TextInputEditText TextInputEditText_dataconclusaobarramento;
@@ -44,11 +45,11 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         // Check which radio button was clicked
         switch (view.getId()) {
             case R.id.radio_barragem:
-                Toast.makeText(getApplicationContext(), "Barramento selecionado: Barragem", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Tipo: Barragem", Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.radio_dique:
-                Toast.makeText(getApplicationContext(), "Barramento selecionado: Dique", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Tipo: Dique", Toast.LENGTH_SHORT).show();
 
                 break;
         }
@@ -64,7 +65,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        TextInputEditText_tipobarramento = findViewById(R.id.TextInputEditText_tipobarramento);
+        //TextInputEditText_tipobarramento = findViewById(R.id.TextInputEditText_tipobarramento);//este campo foi removido
 
         TextInputEditText_nomebarramento = findViewById(R.id.TextInputEditText_nomebarramento);
         TextInputEditText_dataconclusaobarramento = findViewById(R.id.TextInputEditText_dataconclusaobarramento);
@@ -80,7 +81,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //precisa remover o primeiro item caso ainda utilize este bloco de códigos!
                 if (!TextInputEditText_tipobarramento.getText().toString().isEmpty()){
 
                     if (!TextInputEditText_nomebarramento.getText().toString().isEmpty()){
@@ -122,7 +123,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
                     }
 
                 }else{
-                    TextInputEditText_tipobarramento.setError("Campo Obrigatório");
+                    TextInputEditText_tipobarramento.setError("Campo Obrigatório");//precisa remover o primeiro item caso ainda utilize este bloco de códigos!
                 }
 
 
@@ -130,12 +131,24 @@ public class ActivityInserirBarramento extends AppCompatActivity {
             }
         });
 */
+        Button button = findViewById(R.id.btnBarramento);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), ActivityInfoGerais.class));
+
+                Toast.makeText(getApplicationContext(), "Barramento cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_activities, menu);
         return true;
     }
 

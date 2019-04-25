@@ -87,7 +87,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Potência da Usina (MW)"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -147,7 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Capacidade total do reservatório (m³)"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -162,7 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Data do 1º enchimento do reservatório"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -177,13 +177,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Número total de barramentos da usina"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btnUsina"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="70dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Inserir" />
+                    android:text="Avançar" />
 
             </LinearLayout>
 

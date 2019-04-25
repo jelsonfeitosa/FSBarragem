@@ -53,6 +53,10 @@
         <activity android:name=".fragments.PrincipalFragment" />
         <activity android:name=".activity.SobreActivity" />
         <activity android:name=".activity.CreditosActivity" />
+        <activity
+            android:name=".Expedito.ClassificacaoExpeditaActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Expedito.TelaResultadoActivity"></activity>
     </application>
 
 </manifest>

@@ -12,9 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,6 +31,8 @@ import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
 import com.leenadam.app.Usina.ActivityInserirUsina;
+import com.leenadam.app.config.ConfiguracaoFirebase;
+import com.leenadam.app.helper.Base64Custom;
 
 import java.util.HashMap;
 import java.util.List;
@@ -185,10 +189,12 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         final List<TextInputLayout> textInputLayouts = Utils.findViewsWithType(
                 rootView, TextInputLayout.class);
 
-        Button button = findViewById(R.id.button2);
+        Button button = findViewById(R.id.btnEmpresa);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
+                //bloco de codigos comentados temporariamente para fins de testes
                 boolean noErrors = true;
                 for (TextInputLayout textInputLayout : textInputLayouts) {
                     String editTextString = textInputLayout.getEditText().getText().toString();
@@ -203,12 +209,22 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
                 if (noErrors) {
                     // All fields are valid!
                     enviarDados(); // Chama o método para enviar dados para o Firebase
+                    startActivity(new Intent(getApplicationContext(), ActivityInserirUsina.class));
+
+                    Toast.makeText(getApplicationContext(), "Empresa cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
+
                 }
+                */
+
+                startActivity(new Intent(getApplicationContext(), ActivityInserirUsina.class));
+
+                Toast.makeText(getApplicationContext(), "Empresa cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
 
-    //Método para enviar dados para o Firebase
+    //Método para enviar dados para o Firebase Cloud Firestore
     private void enviarDados() {
 
         final Map<String, Object> dados = new HashMap<>();
@@ -257,10 +273,12 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
 
     }
 
+//Este menu é temporário. A finalidade, no momento, é para facilitar o trabalho de desenvolvimento ao conferir os resultados durante a emulação do app no aparelho. Futuramente, é possível manter o menu, porém, com outros itens/finalidades que ainda não foram pensados...
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_activities, menu);
         return true;
     }
 

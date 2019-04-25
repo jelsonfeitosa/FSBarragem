@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -38,6 +39,18 @@ public class ActivityInfoGerais extends AppCompatActivity {
             }
         });
 */
+
+        Button button = findViewById(R.id.btnInfoGeral);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), ActivityMatrizClassificacao.class));
+
+                Toast.makeText(getApplicationContext(), "Informações Gerais preenchidas com sucesso.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 
@@ -140,7 +153,7 @@ public class ActivityInfoGerais extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_activities, menu);
         return true;
     }
 

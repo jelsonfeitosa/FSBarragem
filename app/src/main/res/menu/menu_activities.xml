@@ -58,23 +58,4 @@
         android:title="Relatório"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_bd"
-        android:orderInCategory="100"
-        android:title="Test BD"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_expedito"
-        android:orderInCategory="100"
-        android:icon="@drawable/calc_fsbarragem_2"
-        android:title="Expedito"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/menuSair"
-        android:orderInCategory="100"
-        android:title="Sair"
-        app:showAsAction="never" />
-
 </menu>

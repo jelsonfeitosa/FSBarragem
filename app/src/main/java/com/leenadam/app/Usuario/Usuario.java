@@ -3,6 +3,7 @@ package com.leenadam.app.Usuario;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.leenadam.app.config.ConfiguracaoFirebase;
 
 public class Usuario {
@@ -23,6 +24,10 @@ public class Usuario {
                 .child(this.idUsuario)
 
                 .setValue(this);
+/* tentativa para cadastrar usuarios utilizando o Firestore - em fase de teste
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.collection("Usuarios")
+                .document(this.idUsuario);*/
     }
 
 
