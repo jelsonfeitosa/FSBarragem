@@ -17,8 +17,6 @@ public class TelaResultadoActivity extends AppCompatActivity {
 
     private TextView txtAltura, txtVolume, txtResultadoAltura, txtResultadoReservatorio, txtResultadoPotencial, txtResultEnquadramentoExpedito, txtResultadoExpedito;
 
-
-
     private Button btnMais;
     private Button btnFechar;
 

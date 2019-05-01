@@ -57,6 +57,8 @@
             android:name=".Expedito.ClassificacaoExpeditaActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Expedito.TelaResultadoActivity"></activity>
+        <activity android:name=".RelatorioPrevia.TelaPreviaRelatorioActivity"></activity>
+        <activity android:name=".Relatorio.TelaRelatorioActivity"></activity>
     </application>
 
 </manifest>

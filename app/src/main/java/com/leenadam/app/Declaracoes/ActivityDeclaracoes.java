@@ -1,34 +1,72 @@
 package com.leenadam.app.Declaracoes;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
+import com.leenadam.app.Empresa.Utils;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
 import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
-import com.leenadam.app.TesteBancoActivity;
 import com.leenadam.app.Usina.ActivityInserirUsina;
+import com.leenadam.app.activity.PrincipalActivity;
 import com.leenadam.app.helper.DateCustom;
 
-import java.io.File;
 import java.util.List;
+
 
 public class ActivityDeclaracoes extends AppCompatActivity {
 
+    private String declaracaoArt = "";
+    private String declaracaoRl = "";
+
+    private TextInputEditText TextInputEditText_localdeclaracao;
+    private TextInputEditText TextInputEditText_datadeclaracao;
+
+    private TextInputEditText TextInputEditText_nomerepresentantedeclaracao;
+    private TextInputEditText TextInputEditText_cpfrepresentantedeclaracao;
+    private TextInputEditText TextInputEditText_cargorepresentantedeclaracao;
+
+    private TextInputEditText TextInputEditText_nometecnicodeclaracao;
+    private TextInputEditText TextInputEditText_createcnicodeclaracao;
+    private TextInputEditText TextInputEditText_cpftecnicodeclaracao;
+    private TextInputEditText TextInputEditText_cargotecnicodeclaracao;
+
     private TextInputEditText campoData;
+
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.cbResponsavelTecnico:
+                if (checked){
+                    declaracaoArt = "ok";
+                }
+                break;
+            case R.id.cbRepresentanteLegal:
+                if (checked){
+                    declaracaoRl = "ok";
+                }
+                break;
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +75,59 @@ public class ActivityDeclaracoes extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        campoData = findViewById(R.id.TextInputEditText_datadeclaracao);
+        TextInputEditText_localdeclaracao = findViewById(R.id.TextInputEditText_localdeclaracao);
+        TextInputEditText_datadeclaracao = findViewById(R.id.TextInputEditText_datadeclaracao);
 
-        campoData.setText(DateCustom.dataAtual());
+        TextInputEditText_nomerepresentantedeclaracao = findViewById(R.id.TextInputEditText_nomerepresentantedeclaracao);
+        TextInputEditText_cpfrepresentantedeclaracao = findViewById(R.id.TextInputEditText_cpfrepresentantedeclaracao);
+        TextInputEditText_cargorepresentantedeclaracao = findViewById(R.id.TextInputEditText_cargorepresentantedeclaracao);
+
+        TextInputEditText_nometecnicodeclaracao = findViewById(R.id.TextInputEditText_nometecnicodeclaracao);
+        TextInputEditText_createcnicodeclaracao = findViewById(R.id.TextInputEditText_createcnicodeclaracao);
+        TextInputEditText_cpftecnicodeclaracao = findViewById(R.id.TextInputEditText_cpftecnicodeclaracao);
+        TextInputEditText_cargotecnicodeclaracao = findViewById(R.id.TextInputEditText_cargotecnicodeclaracao);
+
+        campoData = findViewById(R.id.TextInputEditText_datadeclaracao);
+        campoData.setText(DateCustom.dataAtual());//configura a data atual automaticamente
+
+        //Cria condicional com aviso para campos que ficarem sem o devido preenchimento
+        View rootView = findViewById(android.R.id.content);
+
+        final List<TextInputLayout> textInputLayouts = Utils.findViewsWithType(
+                rootView, TextInputLayout.class);
+
+        Button button = findViewById(R.id.aceitarDeclaracao);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                boolean noErrors = true;
+                for (TextInputLayout textInputLayout : textInputLayouts) {
+                    String editTextString = textInputLayout.getEditText().getText().toString();
+                    if (editTextString.isEmpty()) {
+                        textInputLayout.setError(getResources().getString(R.string.error_string));
+                        noErrors = false;
+                    } else {
+                        textInputLayout.setError(null);
+                    }
+                }
+
+                if ((noErrors) && (declaracaoArt != "") && (declaracaoRl != "")) {
+                    //enviarDados(); // Chama o método para enviar dados para o Firebase - comentado por enquanto, logo não irá guardar os dados no firestore
+                    //startActivity(new Intent(getApplicationContext(), PrincipalActivity.class));//modificar
+
+                    Toast.makeText(getApplicationContext(), "Declaração realizada com sucesso.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Verifique o(s) campo(s) vazio(s)", Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(view, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                }
+            }
+        });
 
     }
 
-
+/*
     public void abrirPDF() {
 
         String titulo = getResources().getString(R.string.choosee_title);
@@ -81,6 +165,8 @@ public class ActivityDeclaracoes extends AppCompatActivity {
         else
             Toast.makeText(getApplicationContext(), "File path is incorrect." , Toast.LENGTH_LONG).show();
     }
+
+*/
 
 
     @Override
@@ -131,7 +217,7 @@ public class ActivityDeclaracoes extends AppCompatActivity {
         }
 
         if (id == R.id.menu_declaracoes) {
-            startActivity(new Intent(this, ActivityDeclaracoes.class));
+            //startActivity(new Intent(this, ActivityDeclaracoes.class));
             return true;
         }
 
@@ -141,13 +227,9 @@ public class ActivityDeclaracoes extends AppCompatActivity {
         }
 
         if (id == R.id.action_relatorio) {
+            //startActivity(new Intent(this, TelaRelatorioActivity.class));
             //abrirPDF();
             //displaypdf();
-            return true;
-        }
-
-        if (id == R.id.action_bd) {
-            startActivity(new Intent(this, TesteBancoActivity.class));
             return true;
         }
 

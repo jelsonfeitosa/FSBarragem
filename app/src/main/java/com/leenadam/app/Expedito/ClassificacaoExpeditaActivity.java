@@ -3,17 +3,21 @@ package com.leenadam.app.Expedito;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +31,13 @@ import com.isapanah.awesomespinner.AwesomeSpinner;
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
+import com.leenadam.app.Empresa.Utils;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.Usina.ActivityInserirUsina;
 import com.leenadam.app.activity.MainActivity;
+import com.leenadam.app.activity.PrincipalActivity;
 import com.leenadam.app.util.ModoValorDesc;
 
 import java.util.ArrayList;
@@ -132,6 +138,10 @@ public class ClassificacaoExpeditaActivity extends AppCompatActivity {
     String recordU = "";
     String recordV = "";
 
+    String faixaAltura = "start";
+    String faixaReservatorio = "start";
+
+
     private ResultadoExpedito resultadoExpedito;
 
     @Override
@@ -183,11 +193,11 @@ public class ClassificacaoExpeditaActivity extends AppCompatActivity {
         btnClassificar = findViewById(R.id.btnClassificar);
         btnCancelar = findViewById(R.id.btnCancelar);
 
-        textResultado = findViewById(R.id.textResultado);
-        textResultadoAltura = findViewById(R.id.textResultadoAltura);
-        textResultadoReservatorio = findViewById(R.id.textResultadoReservatorio);
-        textResultadoPotencial = findViewById(R.id.textResultadoPotencial);
-        textResultadoEnquadramento = findViewById(R.id.textResultadoEnquadramento);
+        //textResultado = findViewById(R.id.textResultado);
+        //textResultadoAltura = findViewById(R.id.textResultadoAltura);
+        //textResultadoReservatorio = findViewById(R.id.textResultadoReservatorio);
+        //textResultadoPotencial = findViewById(R.id.textResultadoPotencial);
+        //textResultadoEnquadramento = findViewById(R.id.textResultadoEnquadramento);
 
 
         //Modify styles of spinner - remover após testes
@@ -822,15 +832,11 @@ public class ClassificacaoExpeditaActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(int position, String itemAtPosition) {
 
-                //ModoValorDesc classe = new ModoValorDesc(); //Falhou
-
                 switch (position) {
 
                     case 0:
 
                         recordS = "1";
-
-                        //classe.getValor(); //Falhou
 
                         break;
 
@@ -945,195 +951,299 @@ public class ClassificacaoExpeditaActivity extends AppCompatActivity {
             }
         });
 
-
-
-        /*---------------------------------Chamada da máquina de cálculo----------------------------------*/
+        /*---------------------------------Processamento dos dados para classificação do barramento/Chamada da máquina de cálculo----------------------------------*/
         btnClassificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //maquinaCalculoClassificacao();
-                //abrirResultado("titulo", "mensagem");
 
+                String dadosAlturaCondizentes = "start";
+                String dadosVolumeCondizentes = "start";
 
-                //Matriz CT
-                int valorA = Integer.parseInt(recordA);
-                int valorB = Integer.parseInt(recordB);
-                int valorC = Integer.parseInt(recordC);
-                int valorD = Integer.parseInt(recordD);
-                int valorE = Integer.parseInt(recordE);
-                int valorF = Integer.parseInt(recordF);
-                int valorG = Integer.parseInt(recordG);
+                //VALIDAÇÕES CAMPOS DE TEXTO
+                View rootView = findViewById(android.R.id.content);
 
-                int somatorioCt = (valorA + valorB + valorC + valorD + valorE + valorF + valorG);
+                final List<TextInputLayout> textInputLayouts = Utils.findViewsWithType(
+                        rootView, TextInputLayout.class);
 
-                //textResultado.setText(String.valueOf("O resultado é: " + somatorioCt ));
-
-                Log.i("CT ", String.valueOf(somatorioCt));
-
-                //Matriz EC
-                int valorH = Integer.parseInt(recordH);//*
-                int valorI = Integer.parseInt(recordI);
-                int valorJ = Integer.parseInt(recordJ);//*
-                int valorK = Integer.parseInt(recordK);//*
-                int valorL = Integer.parseInt(recordL);
-                int valorM = Integer.parseInt(recordM);
-
-                int somatorioEc = (valorH + valorI + valorJ + valorK + valorL + valorM);
-
-                //textResultado.setText(String.valueOf("O resultado é: " + somatorioEc ));
-
-                Log.i("EC ", String.valueOf(somatorioEc));
-
-                //Matriz PS
-                int valorN = Integer.parseInt(recordN);
-                int valorO = Integer.parseInt(recordO);
-                int valorP = Integer.parseInt(recordP);
-                int valorQ = Integer.parseInt(recordQ);
-                int valorR = Integer.parseInt(recordR);
-
-                int somatorioPs = (valorN + valorO + valorP + valorQ + valorR);
-
-                //textResultado.setText(String.valueOf("O resultado é: " + somatorioPs ));
-
-                Log.i("PS ", String.valueOf(somatorioPs));
-
-                //Resultado Somatorio CRI
-                int somatorioCri = (somatorioCt + somatorioEc + somatorioPs);
-
-                String criResult = "";
-
-                if (valorH >= 8) {
-                    criResult = "Alto";
-                } else if (valorJ >= 8) {
-                    criResult = "Alto";
-                } else if (valorK >= 8) {
-                    criResult = "Alto";
-                } else if (somatorioCri <= 35) {
-                    criResult = "Baixo";
-                } else if (somatorioCri < 62) {
-                    criResult = "Médio";
-                } else {
-                    criResult = "Alto";
+                boolean noErrors = true;
+                for (TextInputLayout textInputLayout : textInputLayouts) {
+                    String editTextString = textInputLayout.getEditText().getText().toString();
+                    if (editTextString.isEmpty()) {
+                        textInputLayout.setError(getResources().getString(R.string.error_string));
+                        noErrors = false;
+                    } else {
+                        textInputLayout.setError(null);
+                    }
                 }
 
-                //textResultado.setText(String.valueOf("O resultado é: " + somatorioCri + "; Classificação: " + criResult));
+                if (noErrors) {
 
-                Log.i("CRI ", String.valueOf(somatorioCri) + " | Classificação: " + criResult);
+                    //VALIDAÇÕES AWESOME SPINNERS
+                    if (AwesomeSpinnerAltura.isSelected()) {
 
-                //Matriz DPA
-                int valorS = Integer.parseInt(recordS);
-                int valorT = Integer.parseInt(recordT);
-                int valorU = Integer.parseInt(recordU);
-                int valorV = Integer.parseInt(recordV);
+                        Double compararAlturaMacico;
+                        compararAlturaMacico = Double.parseDouble(TextInputEditText_alturabarramento.getText().toString());
 
-                int somatorioDpa = (valorS + valorT + valorU + valorV);
+                        Log.i("faixa", "Peso altura: " + recordA + "|" + "Altura inserida: " + compararAlturaMacico);
 
-                String dpaResult = "";
+                        if ((recordA == "0") && (compararAlturaMacico <= 15)) {
+                            Log.i("faixa", "rodou o item 1");
 
-                if (somatorioDpa <= 10) {
-                    dpaResult = "Baixo";
-                } else if (somatorioDpa > 10 && somatorioDpa < 16) {
-                    dpaResult = "Médio";
-                } else {
-                    dpaResult = "Alto";
-                }
+                        } else if ((recordA == "1") && ((compararAlturaMacico > 15) && (compararAlturaMacico < 30))) {
+                            Log.i("faixa", "rodou o item 2");
 
-                //textResultado.setText(String.valueOf("O resultado é: " + somatorioDpa + "; Classificação: " + dpaResult));
+                        } else if ((recordA == "2") && ((compararAlturaMacico >= 30) && (compararAlturaMacico <= 60))) {
+                            Log.i("faixa", "rodou o item 3");
 
-                Log.i("DPA ", "O resultado é: " + somatorioDpa + " | Classificação: " + dpaResult);
+                        } else if ((recordA == "3") && ((compararAlturaMacico > 60))) {
+                            Log.i("faixa", "rodou o item 4");
+
+                        } else {
+                            Log.i("faixa", "rodou erro altura");
+                            dadosAlturaCondizentes = "contraditorio";
+                            Toast toast = Toast.makeText(getApplicationContext(), "Altura contraditória", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.CENTER, 0, 500);//modificar posição um pouco mais para baixo...as unidades são pixels e considera-se uma pratica desaconselhável utilizar números negativos, assim como modificar posição e tamanho utilizando pixels mas sim dp!
+                            toast.show();
+                        }
+
+                        //Caracteristicas Tecnicas CT
+                        if (AwesomeSpinnerComprimento.isSelected()) {
+
+                            if (AwesomeSpinnerTipoBarragem.isSelected()) {
+
+                                if (AwesomeSpinnerTipoFundacao.isSelected()) {
+
+                                    if (AwesomeSpinnerIdadeBarragem.isSelected()) {
+
+                                        if (AwesomeSpinnerVazaoProjeto.isSelected()) {
+
+                                            if (AwesomeSpinnerCasaForca.isSelected()) {
+
+                                                //Estado de conservacao EC
+                                                if (AwesomeSpinnerConfiabEstrutExtravasoras.isSelected()) {
+
+                                                    if (AwesomeSpinnerConfiabEstrutAducao.isSelected()) {
+
+                                                        if (AwesomeSpinnerPercolacao.isSelected()) {
+
+                                                            if (AwesomeSpinnerDeformacoesRecalques.isSelected()) {
+
+                                                                if (AwesomeSpinnerDeterioracaoTaludesParamentos.isSelected()) {
+
+                                                                    if (AwesomeSpinnerEclusa.isSelected()) {
+
+                                                                        //Plano de seguranca de barragem PS
+                                                                        if (AwesomeSpinnerExistenciaDocProjeto.isSelected()) {
+
+                                                                            if (AwesomeSpinnerEstrutOrganizacional.isSelected()) {
+
+                                                                                if (AwesomeSpinnerProcedimentosRoteiros.isSelected()) {
+
+                                                                                    if (AwesomeSpinnerRegraOperacional.isSelected()) {
+
+                                                                                        if (AwesomeSpinnerRelatoriosInspecao.isSelected()) {
+
+                                                                                            //Dano potencial associado
+                                                                                            if (AwesomeSpinnerVolumeReservatorio.isSelected()) {
+
+                                                                                                Double compararVolumeReservatorio;
+                                                                                                compararVolumeReservatorio = Double.parseDouble(TextInputEditText_capacidadeusina.getText().toString());
+
+                                                                                                Log.i("faixa", "Peso volume: " + recordS + "|" + "Volume inserido: " + compararVolumeReservatorio);
+
+                                                                                                if ((recordS == "1") && (compararVolumeReservatorio <= 5000000)) {
+                                                                                                    Log.i("faixa", "rodou o item 1");
+
+                                                                                                } else if ((recordS == "2") && ((compararVolumeReservatorio > 5000000) && (compararVolumeReservatorio < 75000000))) {
+                                                                                                    Log.i("faixa", "rodou o item 2");
+
+                                                                                                } else if ((recordS == "3") && ((compararVolumeReservatorio >= 75000000) && (compararVolumeReservatorio <= 200000000))) {
+                                                                                                    Log.i("faixa", "rodou o item 3");
+
+                                                                                                } else if ((recordS == "5") && ((compararVolumeReservatorio > 200000000))) {
+                                                                                                    Log.i("faixa", "rodou o item 4");
+
+                                                                                                } else {
+                                                                                                    Log.i("faixa", "rodou erro volume");
+                                                                                                    dadosVolumeCondizentes = "contraditorio";
+                                                                                                    Toast.makeText(getApplicationContext(), "Volume contraditório", Toast.LENGTH_SHORT).show();
+                                                                                                }
 
 
-                //Enquadramento Resolução nº 696 de 2015
+                                                                                                if (AwesomeSpinnerPotencialPerdasVidas.isSelected()) {
 
-                //Validar o texto
-                /*
-                if (editNome.getText().toString().equals("")){
-                    Toast.makeText(getApplicationContext(), "Preencha o nome",Toast.LENGTH_LONG).show();
-                }else {
-                    String nome = editNome.getText().toString();
-                    editor.putString("nome", nome);
-                    editor.commit();
+                                                                                                    if (AwesomeSpinnerImpactoAmbiental.isSelected()) {
 
-                    textResultado.setText("Olá, " + nome);
-                }*/
+                                                                                                        if ((AwesomeSpinnerImpactoSocioEconomico.isSelected()) && (dadosAlturaCondizentes != "contraditorio") && (dadosVolumeCondizentes != "contraditorio")) {
+
+                                                                                                            /*INICIO COD CALCULO*/
+
+                                                                                                            //Matriz CT
+                                                                                                            int valorA = Integer.parseInt(recordA);
+                                                                                                            int valorB = Integer.parseInt(recordB);
+                                                                                                            int valorC = Integer.parseInt(recordC);
+                                                                                                            int valorD = Integer.parseInt(recordD);
+                                                                                                            int valorE = Integer.parseInt(recordE);
+                                                                                                            int valorF = Integer.parseInt(recordF);
+                                                                                                            int valorG = Integer.parseInt(recordG);
+
+                                                                                                            int somatorioCt = (valorA + valorB + valorC + valorD + valorE + valorF + valorG);
+
+                                                                                                            //textResultado.setText(String.valueOf("O resultado é: " + somatorioCt ));
+
+                                                                                                            Log.i("CT ", String.valueOf(somatorioCt));
+
+                                                                                                            //Matriz EC
+                                                                                                            int valorH = Integer.parseInt(recordH);//*
+                                                                                                            int valorI = Integer.parseInt(recordI);
+                                                                                                            int valorJ = Integer.parseInt(recordJ);//*
+                                                                                                            int valorK = Integer.parseInt(recordK);//*
+                                                                                                            int valorL = Integer.parseInt(recordL);
+                                                                                                            int valorM = Integer.parseInt(recordM);
+
+                                                                                                            int somatorioEc = (valorH + valorI + valorJ + valorK + valorL + valorM);
+
+                                                                                                            //textResultado.setText(String.valueOf("O resultado é: " + somatorioEc ));
+
+                                                                                                            Log.i("EC ", String.valueOf(somatorioEc));
+
+                                                                                                            //Matriz PS
+                                                                                                            int valorN = Integer.parseInt(recordN);
+                                                                                                            int valorO = Integer.parseInt(recordO);
+                                                                                                            int valorP = Integer.parseInt(recordP);
+                                                                                                            int valorQ = Integer.parseInt(recordQ);
+                                                                                                            int valorR = Integer.parseInt(recordR);
+
+                                                                                                            int somatorioPs = (valorN + valorO + valorP + valorQ + valorR);
+
+                                                                                                            //textResultado.setText(String.valueOf("O resultado é: " + somatorioPs ));
+
+                                                                                                            Log.i("PS ", String.valueOf(somatorioPs));
+
+                                                                                                            //Resultado Somatorio CRI
+                                                                                                            int somatorioCri = (somatorioCt + somatorioEc + somatorioPs);
+
+                                                                                                            String criResult = "";
+
+                                                                                                            if (valorH >= 8) {
+                                                                                                                criResult = "Alto";
+                                                                                                            } else if (valorJ >= 8) {
+                                                                                                                criResult = "Alto";
+                                                                                                            } else if (valorK >= 8) {
+                                                                                                                criResult = "Alto";
+                                                                                                            } else if (somatorioCri <= 35) {
+                                                                                                                criResult = "Baixo";
+                                                                                                            } else if (somatorioCri < 62) {
+                                                                                                                criResult = "Médio";
+                                                                                                            } else {
+                                                                                                                criResult = "Alto";
+                                                                                                            }
+
+                                                                                                            //textResultado.setText(String.valueOf("O resultado é: " + somatorioCri + "; Classificação: " + criResult));
+
+                                                                                                            Log.i("CRI ", String.valueOf(somatorioCri) + " | Classificação: " + criResult);
+
+                                                                                                            //Matriz DPA
+                                                                                                            int valorS = Integer.parseInt(recordS);
+                                                                                                            int valorT = Integer.parseInt(recordT);
+                                                                                                            int valorU = Integer.parseInt(recordU);
+                                                                                                            int valorV = Integer.parseInt(recordV);
+
+                                                                                                            int somatorioDpa = (valorS + valorT + valorU + valorV);
+
+                                                                                                            String dpaResult = "";
+
+                                                                                                            if (somatorioDpa <= 10) {
+                                                                                                                dpaResult = "Baixo";
+                                                                                                            } else if (somatorioDpa > 10 && somatorioDpa < 16) {
+                                                                                                                dpaResult = "Médio";
+                                                                                                            } else {
+                                                                                                                dpaResult = "Alto";
+                                                                                                            }
+
+                                                                                                            //textResultado.setText(String.valueOf("O resultado é: " + somatorioDpa + "; Classificação: " + dpaResult));
+
+                                                                                                            Log.i("DPA ", "O resultado é: " + somatorioDpa + " | Classificação: " + dpaResult);
 
 
-                String enquadramentoAltura = "";
-                Double alturaMacico;
-                alturaMacico = Double.parseDouble(TextInputEditText_alturabarramento.getText().toString());
+                                                                                                            //Enquadramento Resolução nº 696 de 2015
 
-                if (alturaMacico >= 15) {
-                    enquadramentoAltura = "Sim";
-                } else {
-                    enquadramentoAltura = "Não";
-                }
+                                                                                                            String enquadramentoAltura = "";
+                                                                                                            Double alturaMacico;
+                                                                                                            alturaMacico = Double.parseDouble(TextInputEditText_alturabarramento.getText().toString());
 
-                Log.i("altura", "Enquadramento altura: " + enquadramentoAltura + " | (Altura: " + alturaMacico + " m)");
-                //textResultadoAltura.setText(String.valueOf(enquadramentoAltura + " | (Altura: " + alturaMacico + " m)"));
+                                                                                                            if (alturaMacico >= 15) {
+                                                                                                                enquadramentoAltura = "Sim";
+                                                                                                            } else {
+                                                                                                                enquadramentoAltura = "Não";
+                                                                                                            }
 
-
-                String enquadramentoReservatorio = "";
-                Double volumeReservatorio;
-                volumeReservatorio = Double.parseDouble(TextInputEditText_capacidadeusina.getText().toString());
-
-                if (volumeReservatorio >= 3000000) {
-                    enquadramentoReservatorio = "Sim";
-                } else {
-                    enquadramentoReservatorio = "Não";
-                }
-
-                Log.i("reservatorio", "Enquadramento reservatório: " + enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)");
-                //textResultadoReservatorio.setText(String.valueOf(enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)"));
+                                                                                                            Log.i("altura", "Enquadramento altura: " + enquadramentoAltura + " | (Altura: " + alturaMacico + " m)");
+                                                                                                            //textResultadoAltura.setText(String.valueOf(enquadramentoAltura + " | (Altura: " + alturaMacico + " m)"));
 
 
-                String enquadramentoPotencial = "";
+                                                                                                            String enquadramentoReservatorio = "";
+                                                                                                            Double volumeReservatorio;
+                                                                                                            volumeReservatorio = Double.parseDouble(TextInputEditText_capacidadeusina.getText().toString());
 
-                if ((dpaResult == "Médio") || (dpaResult == "Alto")) {
-                    enquadramentoPotencial = "Sim";
-                } else {
-                    enquadramentoPotencial = "Não";
-                }
+                                                                                                            if (volumeReservatorio >= 3000000) {
+                                                                                                                enquadramentoReservatorio = "Sim";
+                                                                                                            } else {
+                                                                                                                enquadramentoReservatorio = "Não";
+                                                                                                            }
 
-                Log.i("reservatorio", "Enquadramento potencial: " + enquadramentoPotencial + " | (DPA: " + dpaResult + ")\n");
-                //textResultadoPotencial.setText(String.valueOf(enquadramentoPotencial + " | (DPA: " + dpaResult + ")"));
+                                                                                                            Log.i("reservatorio", "Enquadramento reservatório: " + enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)");
+                                                                                                            //textResultadoReservatorio.setText(String.valueOf(enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)"));
 
 
-                String enquadramentoResultado = "";
+                                                                                                            String enquadramentoPotencial = "";
 
-                String sim = "Positivo. O barramento enquadra na Resolução nº 696/2015.";
-                String nao = "Negativo. O barramento não enquadra na Resolução nº 696/2015.";
+                                                                                                            if ((dpaResult == "Médio") || (dpaResult == "Alto")) {
+                                                                                                                enquadramentoPotencial = "Sim";
+                                                                                                            } else {
+                                                                                                                enquadramentoPotencial = "Não";
+                                                                                                            }
 
-                if (enquadramentoAltura == "Sim" || enquadramentoReservatorio == "Sim") {
-                    enquadramentoResultado = sim;
-                } else {
-                    enquadramentoResultado = (enquadramentoPotencial == "Sim") ? sim : nao;
-                }
+                                                                                                            Log.i("reservatorio", "Enquadramento potencial: " + enquadramentoPotencial + " | (DPA: " + dpaResult + ")\n");
+                                                                                                            //textResultadoPotencial.setText(String.valueOf(enquadramentoPotencial + " | (DPA: " + dpaResult + ")"));
 
-                Log.i("enquadramento", "Enquadramento potencial: "
-                        + enquadramentoResultado + " | Altura: " + enquadramentoAltura + ")\n"
-                        + "| Reservatorio: " + enquadramentoReservatorio + ")\n");
-                //textResultadoEnquadramento.setText(String.valueOf(enquadramentoResultado));
 
-                //Resultado da Classificação
-                String resultadoClassificacao = "";
+                                                                                                            String enquadramentoResultado = "";
 
-                if (criResult == "Alto" && dpaResult == "Alto") {
-                    resultadoClassificacao = "A";
-                } else if ((criResult == "Médio" && dpaResult == "Alto") || (criResult == "Baixo" && dpaResult == "Alto")) {
-                    resultadoClassificacao = "B";
-                } else if ((criResult == "Alto" && dpaResult == "Médio") || (criResult == "Alto" && dpaResult == "Baixo")) {
-                    resultadoClassificacao = "B";
-                } else if ((criResult == "Médio" && dpaResult == "Médio") || (criResult == "Baixo" && dpaResult == "Médio")) {
-                    resultadoClassificacao = "C";
-                } else if ((criResult == "Médio" && dpaResult == "Baixo") || (criResult == "Baixo" && dpaResult == "Baixo")) {
-                    resultadoClassificacao = "C";
-                }
+                                                                                                            String sim = "Positivo. O barramento enquadra na Resolução nº 696/2015.";
+                                                                                                            String nao = "Negativo. O barramento não enquadra na Resolução nº 696/2015.";
 
-                String resultados = "Enquadramento altura: " + enquadramentoAltura + " | (Altura: " + alturaMacico + " m)\n"
-                        + "Enquadramento reservatório: " + enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)\n"
-                        + "Enquadramento potencial: " + enquadramentoPotencial + " | (DPA: " + dpaResult + ")\n"
-                        + resultadoClassificacao;
+                                                                                                            if (enquadramentoAltura == "Sim" || enquadramentoReservatorio == "Sim") {
+                                                                                                                enquadramentoResultado = sim;
+                                                                                                            } else {
+                                                                                                                enquadramentoResultado = (enquadramentoPotencial == "Sim") ? sim : nao;
+                                                                                                            }
+
+                                                                                                            Log.i("enquadramento", "Enquadramento potencial: "
+                                                                                                                    + enquadramentoResultado + " | Altura: " + enquadramentoAltura + ")\n"
+                                                                                                                    + "| Reservatorio: " + enquadramentoReservatorio + ")\n");
+                                                                                                            //textResultadoEnquadramento.setText(String.valueOf(enquadramentoResultado));
+
+                                                                                                            //Resultado da Classificação
+                                                                                                            String resultadoClassificacao = "";
+
+                                                                                                            if (criResult == "Alto" && dpaResult == "Alto") {
+                                                                                                                resultadoClassificacao = "A";
+                                                                                                            } else if ((criResult == "Médio" && dpaResult == "Alto") || (criResult == "Baixo" && dpaResult == "Alto")) {
+                                                                                                                resultadoClassificacao = "B";
+                                                                                                            } else if ((criResult == "Alto" && dpaResult == "Médio") || (criResult == "Alto" && dpaResult == "Baixo")) {
+                                                                                                                resultadoClassificacao = "B";
+                                                                                                            } else if ((criResult == "Médio" && dpaResult == "Médio") || (criResult == "Baixo" && dpaResult == "Médio")) {
+                                                                                                                resultadoClassificacao = "C";
+                                                                                                            } else if ((criResult == "Médio" && dpaResult == "Baixo") || (criResult == "Baixo" && dpaResult == "Baixo")) {
+                                                                                                                resultadoClassificacao = "C";
+                                                                                                            }
+
+                                                                                                            String resultados = "Enquadramento altura: " + enquadramentoAltura + " | (Altura: " + alturaMacico + " m)\n"
+                                                                                                                    + "Enquadramento reservatório: " + enquadramentoReservatorio + " | (Volume: " + volumeReservatorio + " m³)\n"
+                                                                                                                    + "Enquadramento potencial: " + enquadramentoPotencial + " | (DPA: " + dpaResult + ")\n"
+                                                                                                                    + resultadoClassificacao;
 
 
 
@@ -1142,34 +1252,140 @@ public class ClassificacaoExpeditaActivity extends AppCompatActivity {
                         + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
                         + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa));//Resultado
 */
-                Log.i("Resultado ", "Classe: " + resultadoClassificacao + " | CRI: " + criResult + " | DPA: " + dpaResult
-                        + "\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
+                                                                                                            Log.i("Resultado ", "Classe: " + resultadoClassificacao + " | CRI: " + criResult + " | DPA: " + dpaResult
+                                                                                                                    + "\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
 
 
-                //Intent
+                                                                                                            //Intent
 
-                resultadoExpedito = new ResultadoExpedito();
+                                                                                                            resultadoExpedito = new ResultadoExpedito();
 
-                resultadoExpedito.setAlturaMacico(Double.parseDouble(TextInputEditText_alturabarramento.getText().toString()));
-                resultadoExpedito.setVolumeReservatorio(Double.parseDouble(TextInputEditText_capacidadeusina.getText().toString()));
+                                                                                                            resultadoExpedito.setAlturaMacico(Double.parseDouble(TextInputEditText_alturabarramento.getText().toString()));
+                                                                                                            resultadoExpedito.setVolumeReservatorio(Double.parseDouble(TextInputEditText_capacidadeusina.getText().toString()));
 
-                resultadoExpedito.setCriResult(criResult);
-                resultadoExpedito.setDpaResult(dpaResult);
+                                                                                                            resultadoExpedito.setCriResult(criResult);
+                                                                                                            resultadoExpedito.setDpaResult(dpaResult);
 
-                resultadoExpedito.setEnquadramentoAltura(enquadramentoAltura);
-                resultadoExpedito.setEnquadramentoReservatorio(enquadramentoReservatorio);
-                resultadoExpedito.setEnquadramentoPotencial(enquadramentoPotencial);
-                resultadoExpedito.setEnquadramentoResultado(enquadramentoResultado);
-                resultadoExpedito.setResultadoClassificacao("Barramento Classe: " + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
-                        + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
+                                                                                                            resultadoExpedito.setEnquadramentoAltura(enquadramentoAltura);
+                                                                                                            resultadoExpedito.setEnquadramentoReservatorio(enquadramentoReservatorio);
+                                                                                                            resultadoExpedito.setEnquadramentoPotencial(enquadramentoPotencial);
+                                                                                                            resultadoExpedito.setEnquadramentoResultado(enquadramentoResultado);
+                                                                                                            resultadoExpedito.setResultadoClassificacao("Barramento Classe: " + resultadoClassificacao + " \n Categoria de Risco: " + criResult + " \n Dano Potencial Associado: " + dpaResult
+                                                                                                                    + "\n\n CT: " + somatorioCt + " | EC: " + somatorioEc + " | PS: " + somatorioPs + " | DPA: " + somatorioDpa);
 
 
-                //resultadoExpedito.setAwesomeSpinnerConfiabEstrutAducao(AwesomeSpinnerConfiabEstrutAducao.getSelectedItem());
+                                                                                                            //resultadoExpedito.setAwesomeSpinnerConfiabEstrutAducao(AwesomeSpinnerConfiabEstrutAducao.getSelectedItem());
 
-                Intent it = new Intent(ClassificacaoExpeditaActivity.this, TelaResultadoActivity.class);
-                it.putExtra("resultado", resultadoExpedito);
-                startActivity(it);
+                                                                                                            Intent it = new Intent(ClassificacaoExpeditaActivity.this, TelaResultadoActivity.class);
+                                                                                                            it.putExtra("resultado", resultadoExpedito);
+                                                                                                            startActivity(it);
 
+                                                                                                            /*FIM COD CALCULO*/
+
+                                                                                                        } else {
+                                                                                                            Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                                                        }
+
+                                                                                                    } else {
+                                                                                                        Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                                                    }
+
+                                                                                                } else {
+                                                                                                    Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                                                }
+
+                                                                                            } else {
+                                                                                                Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                                            }
+
+                                                                                        } else {
+                                                                                            Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                                        }
+
+                                                                                    } else {
+                                                                                        Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                                    }
+
+                                                                                } else {
+                                                                                    Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                                }
+
+                                                                            } else {
+                                                                                Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                            }
+
+                                                                        } else {
+                                                                            Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                        }
+
+                                                                    } else {
+                                                                        Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                    }
+
+                                                                } else {
+                                                                    Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                                }
+
+                                                            } else {
+                                                                Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                            }
+
+                                                        } else {
+                                                            Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                        }
+
+                                                    } else {
+                                                        Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                    }
+
+                                                } else {
+                                                    Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                                }
+
+                                            } else {
+                                                Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                            }
+
+                                        } else {
+                                            Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                        }
+
+                                    } else {
+                                        Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                    }
+
+                                } else {
+                                    Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                                }
+
+                            } else {
+                                Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                            }
+
+                        } else {
+                            Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                        }
+
+                    } else {
+                        Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                    }
+
+                    /*referente a validação dos campos de texto*/
+                } else {
+                    Snackbar.make(v, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                }
+
+            }
+        });
+
+
+        /*---------------------------------Botão cancelar classificação expedita----------------------------------*/
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(ClassificacaoExpeditaActivity.this, PrincipalActivity.class));
+                finish();//finaliza a atual activity. Isso é importante pois evita consumo de recursos desnecessariamente!
 
             }
         });

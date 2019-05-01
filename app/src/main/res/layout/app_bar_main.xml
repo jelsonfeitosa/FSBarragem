@@ -34,7 +34,8 @@
         android:layout_margin="10dp"
         app:menu_colorNormal="@color/colorAccent"
         app:menu_colorPressed="@color/colorAccent"
-        app:menu_icon="@drawable/ic_adicionar_branco_24dp">
+        app:menu_icon="@drawable/ic_adicionar_branco_24dp"
+        app:menu_fab_label="Cadastrar">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_despesa"

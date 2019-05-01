@@ -1,8 +1,12 @@
 package com.leenadam.app.Usina;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,11 +19,16 @@ import android.widget.Toast;
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
+import com.leenadam.app.Empresa.Utils;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
+import com.leenadam.app.Relatorio.TelaRelatorioActivity;
 import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
+import com.leenadam.app.activity.PrincipalActivity;
+
+import java.util.List;
 
 public class ActivityInserirUsina extends AppCompatActivity {
 
@@ -35,7 +44,7 @@ public class ActivityInserirUsina extends AppCompatActivity {
     private TextInputEditText TextInputEditText_dataprimeiroenchimentousina;
     private TextInputEditText TextInputEditText_numerobarramentosusina;
 
-    private FloatingActionButton fab;
+    private Button btnCancelarUsina;
 
 
     @Override
@@ -57,88 +66,78 @@ public class ActivityInserirUsina extends AppCompatActivity {
         TextInputEditText_capacidadetotalusina = findViewById(R.id.TextInputEditText_capacidadetotalusina);
         TextInputEditText_dataprimeiroenchimentousina = findViewById(R.id.TextInputEditText_dataprimeiroenchimentousina);
         TextInputEditText_numerobarramentosusina = findViewById(R.id.TextInputEditText_numerobarramentosusina);
-        /* comentei este bloco porque ele estava causando erro já que eu havia apagado o cód xml do fab na ActivityInserirUsina
 
-        //trocar o "fab" pelo "button" para realizar a validação dos dados aqui, e em todas as outras telas
-
-        fab = findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (!TextInputEditText_nomeusina.getText().toString().isEmpty()){
-
-                    if (!TextInputEditText_idusina.getText().toString().isEmpty()){
-
-                        if (!TextInputEditText_potenciausina.getText().toString().isEmpty()){
-
-                            if (!TextInputEditText_nomeriousina.getText().toString().isEmpty()){
-
-                                if (!TextInputEditText_municipiousina.getText().toString().isEmpty()){
-
-                                    if (!TextInputEditText_estadousina.getText().toString().isEmpty()){
-
-                                        if (!TextInputEditText_capacidadetotalusina.getText().toString().isEmpty()){
-
-                                            if (!TextInputEditText_dataprimeiroenchimentousina.getText().toString().isEmpty()){
-
-                                                if (!TextInputEditText_numerobarramentosusina.getText().toString().isEmpty()){
+        btnCancelarUsina = findViewById(R.id.btnCancelarUsina);
 
 
+        //Cria condicional com aviso para campos que ficarem sem o devido preenchimento
+        View rootView = findViewById(android.R.id.content);
 
-                                                }else{
-                                                    TextInputEditText_numerobarramentosusina.setError("Campo Obrigatório");
-                                                }
-
-                                            }else{
-                                                TextInputEditText_dataprimeiroenchimentousina.setError("Campo Obrigatório");
-                                            }
-
-                                        }else{
-                                            TextInputEditText_capacidadetotalusina.setError("Campo Obrigatório");
-                                        }
-
-                                    }else{
-                                        TextInputEditText_estadousina.setError("Campo Obrigatório");
-                                    }
-
-                                }else{
-                                    TextInputEditText_municipiousina.setError("Campo Obrigatório");
-                                }
-
-                            }else{
-                                TextInputEditText_nomeriousina.setError("Campo Obrigatório");
-                            }
-
-                        }else{
-                            TextInputEditText_potenciausina.setError("Campo Obrigatório");
-                        }
-
-                    }else{
-                        TextInputEditText_idusina.setError("Campo Obrigatório");
-                    }
-
-                }else{
-                    TextInputEditText_nomeusina.setError("Campo Obrigatório");
-                }
-
-            }
-        });
-*/
+        final List<TextInputLayout> textInputLayouts = Utils.findViewsWithType(
+                rootView, TextInputLayout.class);
 
         Button button = findViewById(R.id.btnUsina);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), ActivityInserirBarramento.class));
+                boolean noErrors = true;
+                for (TextInputLayout textInputLayout : textInputLayouts) {
+                    String editTextString = textInputLayout.getEditText().getText().toString();
+                    if (editTextString.isEmpty()) {
+                        textInputLayout.setError(getResources().getString(R.string.error_string));
+                        noErrors = false;
+                    } else {
+                        textInputLayout.setError(null);
+                    }
+                }
 
-                Toast.makeText(getApplicationContext(), "Usina cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
-
+                if (noErrors) {
+                    // All fields are valid!
+                    //enviarDados(); // Chama o método para enviar dados para o Firebase - comentado por enquanto, logo não irá guardar os dados no firestore
+                    startActivity(new Intent(getApplicationContext(), ActivityInserirBarramento.class));
+                    //finish();
+                    Toast.makeText(getApplicationContext(), "Usina cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Verifique o(s) campo(s) vazio(s)", Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(view, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                }
             }
         });
 
+        btnCancelarUsina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Aviso ao usuário
+                String resultadoAlertDialog = "Você está prestes a perder os dados inseridos nesta tela.";
+                AlertDialog.Builder dialog = new AlertDialog.Builder(ActivityInserirUsina.this);
+
+                dialog.setTitle("Cancelar Cadastro?");
+                dialog.setMessage(resultadoAlertDialog);
+                //dialog.setIcon(R.drawable.calc_fsbarragem);
+                dialog.setCancelable(true);
+
+                dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        finish();//finaliza a atual activity. Isso é importante pois evita consumo de recursos desnecessariamente!
+
+                        Toast.makeText(getApplicationContext(), "Cadastro cancelado", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.setNegativeButton("Voltar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Prossiga o cadastro", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.create();
+                dialog.show();
+            }
+        });
     }
 
     @Override
@@ -156,44 +155,44 @@ public class ActivityInserirUsina extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            finish();//encerra a activity
-            return true;
-
-        }
-
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_inserirempresa) {
             startActivity(new Intent(this, ActivityInserirEmpresa.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_inserirusina) {
-            startActivity(new Intent(this, ActivityInserirUsina.class));
+            //startActivity(new Intent(this, ActivityInserirUsina.class));
             return true;
         }
 
         if (id == R.id.menu_inserirbarramento) {
             startActivity(new Intent(this, ActivityInserirBarramento.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_infogerais) {
             startActivity(new Intent(this, ActivityInfoGerais.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_matrizclassificacao) {
             startActivity(new Intent(this, ActivityMatrizClassificacao.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_declaracoes) {
             startActivity(new Intent(this, ActivityDeclaracoes.class));
+            finish();
             return true;
         }
 
@@ -202,11 +201,7 @@ public class ActivityInserirUsina extends AppCompatActivity {
         }
 
         if (id == R.id.action_relatorio) {
-            return true;
-        }
-
-        if (id == R.id.action_bd) {
-            startActivity(new Intent(this, TesteBancoActivity.class));
+            //startActivity(new Intent(this, TelaRelatorioActivity.class));
             return true;
         }
 

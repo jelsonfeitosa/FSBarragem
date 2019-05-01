@@ -260,16 +260,34 @@
 
                 </android.support.design.widget.TextInputLayout>
 
-                <Button
-                    android:id="@+id/btnEmpresa"
-                    style="@style/Widget.MaterialComponents.Button"
+
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
-                    android:layout_marginRight="70dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Avançar" />
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCancelarEmpresa"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:text="Cancelar" />
+
+                    <Button
+                        android:id="@+id/btnEmpresa"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:text="Avançar" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

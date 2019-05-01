@@ -1,9 +1,12 @@
 package com.leenadam.app.Empresa;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -25,12 +28,15 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.Transaction;
 import com.leenadam.app.Barramento.ActivityInserirBarramento;
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
+import com.leenadam.app.Expedito.ClassificacaoExpeditaActivity;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
+import com.leenadam.app.Relatorio.TelaRelatorioActivity;
 import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
 import com.leenadam.app.Usina.ActivityInserirUsina;
+import com.leenadam.app.activity.PrincipalActivity;
 import com.leenadam.app.config.ConfiguracaoFirebase;
 import com.leenadam.app.helper.Base64Custom;
 
@@ -59,6 +65,8 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
     private TextInputEditText TextInputEditText_nomeresptecnico;
     private TextInputEditText TextInputEditText_emailresptecnico;
     private TextInputEditText TextInputEditText_telefoneresptecnico;
+
+    private Button btnCancelarEmpresa;
 
     /*private FloatingActionButton fab;*/
 
@@ -96,93 +104,9 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         TextInputEditText_emailresptecnico = findViewById(R.id.TextInputEditText_emailresptecnico);
         TextInputEditText_telefoneresptecnico = findViewById(R.id.TextInputEditText_telefoneresptecnico);
 
-        /*
-
-        fab = findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (!TextInputEditText_denominacao.getText().toString().isEmpty()){
-
-                    if (!TextInputEditText_idagente.getText().toString().isEmpty()){
-
-                        if (!TextInputEditText_enderecocorrep.getText().toString().isEmpty()){
-
-                            if (!TextInputEditText_municipiocorrep.getText().toString().isEmpty()){
-
-                                if (!TextInputEditText_ufcorrep.getText().toString().isEmpty()){
-
-                                    if (!TextInputEditText_cepcorrep.getText().toString().isEmpty()){
-
-                                        if (!TextInputEditText_nomerepresentante.getText().toString().isEmpty()){
-
-                                            if (!TextInputEditText_emailrepresentante.getText().toString().isEmpty()){
-
-                                                if (!TextInputEditText_telefonerepresentante.getText().toString().isEmpty()){
-
-                                                    if (!TextInputEditText_nomeresptecnico.getText().toString().isEmpty()){
-
-                                                        if (!TextInputEditText_emailresptecnico.getText().toString().isEmpty()){
-
-                                                            if (!TextInputEditText_telefoneresptecnico.getText().toString().isEmpty()){
-
-                                                                enviarDados();
-
-                                                            }else{
-                                                                TextInputEditText_telefoneresptecnico.setError("Campo Obrigatório");
-                                                            }
-
-                                                        }else{
-                                                            TextInputEditText_emailresptecnico.setError("Campo Obrigatório");
-                                                        }
-
-                                                    }else{
-                                                        TextInputEditText_nomeresptecnico.setError("Campo Obrigatório");
-                                                    }
-
-                                                }else{
-                                                    TextInputEditText_telefonerepresentante.setError("Campo Obrigatório");
-                                                }
-
-                                            }else{
-                                                TextInputEditText_emailrepresentante.setError("Campo Obrigatório");
-                                            }
-
-                                        }else{
-                                            TextInputEditText_nomerepresentante.setError("Campo Obrigatório");
-                                        }
-
-                                    }else{
-                                        TextInputEditText_cepcorrep.setError("Campo Obrigatório");
-                                    }
-
-                                }else{
-                                    TextInputEditText_ufcorrep.setError("Campo Obrigatório");
-                                }
-
-                            }else{
-                                TextInputEditText_municipiocorrep.setError("Campo Obrigatório");
-                            }
-
-                        }else{
-                            TextInputEditText_enderecocorrep.setError("Campo Obrigatório");
-                        }
-
-                    }else{
-                        TextInputEditText_idagente.setError("Campo Obrigatório");
-                    }
+        btnCancelarEmpresa = findViewById(R.id.btnCancelarEmpresa);
 
 
-                }else{
-                    TextInputEditText_denominacao.setError("Campo Obrigatório");
-                }
-
-            }
-        });
-
-        */
         //Cria condicional com aviso para campos que ficarem sem o devido preenchimento
         View rootView = findViewById(android.R.id.content);
 
@@ -193,7 +117,7 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
+                /**/
                 //bloco de codigos comentados temporariamente para fins de testes
                 boolean noErrors = true;
                 for (TextInputLayout textInputLayout : textInputLayouts) {
@@ -208,21 +132,63 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
 
                 if (noErrors) {
                     // All fields are valid!
-                    enviarDados(); // Chama o método para enviar dados para o Firebase
+                    //enviarDados(); // Chama o método para enviar dados para o Firebase - comentado por enquanto, logo não irá guardar os dados no firestore
                     startActivity(new Intent(getApplicationContext(), ActivityInserirUsina.class));
+                    //finish();
 
                     Toast.makeText(getApplicationContext(), "Empresa cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
 
+                } else {
+                    Toast.makeText(getApplicationContext(), "Verifique o(s) campo(s) vazio(s)", Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(view, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
                 }
-                */
 
-                startActivity(new Intent(getApplicationContext(), ActivityInserirUsina.class));
-
-                Toast.makeText(getApplicationContext(), "Empresa cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(getApplicationContext(), ActivityInserirUsina.class));//linha de codigo comentada porque ativei a validação de dados logo acima
+                //Toast.makeText(getApplicationContext(), "Empresa cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
 
             }
         });
+
+
+        btnCancelarEmpresa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Aviso ao usuário
+                String resultadoAlertDialog = "Você está prestes a perder os dados inseridos nesta tela.";
+                AlertDialog.Builder dialog = new AlertDialog.Builder(ActivityInserirEmpresa.this);
+
+                dialog.setTitle("Cancelar Cadastro?");
+                dialog.setMessage(resultadoAlertDialog);
+                //dialog.setIcon(R.drawable.calc_fsbarragem);
+                dialog.setCancelable(true);
+
+                dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        startActivity(new Intent(ActivityInserirEmpresa.this, PrincipalActivity.class));
+                        finish();//finaliza a atual activity. Isso é importante pois evita consumo de recursos desnecessariamente!
+
+                        Toast.makeText(getApplicationContext(), "Cadastro cancelado", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.setNegativeButton("Voltar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Prossiga o cadastro", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.create();
+                dialog.show();
+            }
+        });
     }
+
+
+    /*---------------------------------Botão cancelar classificação expedita----------------------------------*/
+
 
     //Método para enviar dados para o Firebase Cloud Firestore
     private void enviarDados() {
@@ -290,59 +256,56 @@ public class ActivityInserirEmpresa extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            finish();//encerra a activity
-            return true;
-
-        }
-
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
+            finish();
             return true;
-
         }
 
         if (id == R.id.menu_inserirempresa) {
-            startActivity(new Intent(this, ActivityInserirEmpresa.class));
+            //startActivity(new Intent(this, ActivityInserirEmpresa.class));
+            //finish();
             return true;
-
         }
 
         if (id == R.id.menu_inserirusina) {
             startActivity(new Intent(this, ActivityInserirUsina.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_inserirbarramento) {
             startActivity(new Intent(this, ActivityInserirBarramento.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_infogerais) {
             startActivity(new Intent(this, ActivityInfoGerais.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_matrizclassificacao) {
             startActivity(new Intent(this, ActivityMatrizClassificacao.class));
+            finish();
             return true;
         }
 
         if (id == R.id.menu_declaracoes) {
             startActivity(new Intent(this, ActivityDeclaracoes.class));
+            finish();
             return true;
         }
 
         if (id == R.id.action_configuracoes) {
+            //finish();
             return true;
         }
 
         if (id == R.id.action_relatorio) {
-            return true;
-        }
-
-        if (id == R.id.action_bd) {
-            startActivity(new Intent(this, TesteBancoActivity.class));
+            //startActivity(new Intent(this, TelaRelatorioActivity.class));
+            //finish();
             return true;
         }
 

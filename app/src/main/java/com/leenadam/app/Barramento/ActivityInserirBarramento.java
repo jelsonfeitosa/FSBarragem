@@ -1,30 +1,39 @@
 package com.leenadam.app.Barramento;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.leenadam.app.Declaracoes.ActivityDeclaracoes;
 import com.leenadam.app.Empresa.ActivityInserirEmpresa;
+import com.leenadam.app.Empresa.Utils;
 import com.leenadam.app.InfoGeral.ActivityInfoGerais;
+import com.leenadam.app.Relatorio.TelaRelatorioActivity;
 import com.leenadam.app.activity.MainActivity;
 import com.leenadam.app.MatrizClassificacao.ActivityMatrizClassificacao;
 import com.leenadam.app.R;
 import com.leenadam.app.TesteBancoActivity;
 import com.leenadam.app.Usina.ActivityInserirUsina;
 
+import java.util.List;
+
 public class ActivityInserirBarramento extends AppCompatActivity {
 
-    //private TextInputEditText TextInputEditText_tipobarramento;
+    private String tipoBarramento = "";
 
     private TextInputEditText TextInputEditText_nomebarramento;
     private TextInputEditText TextInputEditText_dataconclusaobarramento;
@@ -35,7 +44,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
     private TextInputEditText TextInputEditText_alturamacicobarramento;
     private TextInputEditText TextInputEditText_comprimentobarramento;
 
-    private FloatingActionButton fab;
+    private Button btnCancelarBarramento;
 
 
     public void onRadioButtonClicked(View view) {
@@ -45,16 +54,20 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         // Check which radio button was clicked
         switch (view.getId()) {
             case R.id.radio_barragem:
-                Toast.makeText(getApplicationContext(), "Tipo: Barragem", Toast.LENGTH_SHORT).show();
-
+                if (checked) {
+                    tipoBarramento = "Barragem";
+                    Toast.makeText(getApplicationContext(), "Tipo: Barragem", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case R.id.radio_dique:
-                Toast.makeText(getApplicationContext(), "Tipo: Dique", Toast.LENGTH_SHORT).show();
 
+            case R.id.radio_dique:
+                if (checked) {
+                    tipoBarramento = "Dique";
+                    Toast.makeText(getApplicationContext(), "Tipo: Dique", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +77,6 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        //TextInputEditText_tipobarramento = findViewById(R.id.TextInputEditText_tipobarramento);//este campo foi removido
-
         TextInputEditText_nomebarramento = findViewById(R.id.TextInputEditText_nomebarramento);
         TextInputEditText_dataconclusaobarramento = findViewById(R.id.TextInputEditText_dataconclusaobarramento);
 
@@ -75,74 +85,78 @@ public class ActivityInserirBarramento extends AppCompatActivity {
 
         TextInputEditText_alturamacicobarramento = findViewById(R.id.TextInputEditText_alturamacicobarramento);
         TextInputEditText_comprimentobarramento = findViewById(R.id.TextInputEditText_comprimentobarramento);
-/* comentei este bloco porque ele estava causando erro
-        fab = findViewById(R.id.fab);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //precisa remover o primeiro item caso ainda utilize este bloco de códigos!
-                if (!TextInputEditText_tipobarramento.getText().toString().isEmpty()){
+        btnCancelarBarramento = findViewById(R.id.btnCancelarBarramento);
 
-                    if (!TextInputEditText_nomebarramento.getText().toString().isEmpty()){
+        //Cria condicional com aviso para campos que ficarem sem o devido preenchimento
+        View rootView = findViewById(android.R.id.content);
 
-                        if (!TextInputEditText_dataconclusaobarramento.getText().toString().isEmpty()){
+        final List<TextInputLayout> textInputLayouts = Utils.findViewsWithType(
+                rootView, TextInputLayout.class);
 
-                            if (!TextInputEditText_latitudebarramento.getText().toString().isEmpty()){
-
-                                if (!TextInputEditText_longitudebarramento.getText().toString().isEmpty()){
-
-                                    if (!TextInputEditText_alturamacicobarramento.getText().toString().isEmpty()){
-
-                                        if (!TextInputEditText_comprimentobarramento.getText().toString().isEmpty()){
-
-
-
-                                        }else{
-                                            TextInputEditText_comprimentobarramento.setError("Campo Obrigatório");
-                                        }
-
-                                    }else{
-                                        TextInputEditText_alturamacicobarramento.setError("Campo Obrigatório");
-                                    }
-
-                                }else{
-                                    TextInputEditText_longitudebarramento.setError("Campo Obrigatório");
-                                }
-
-                            }else{
-                                TextInputEditText_latitudebarramento.setError("Campo Obrigatório");
-                            }
-
-                        }else{
-                            TextInputEditText_dataconclusaobarramento.setError("Campo Obrigatório");
-                        }
-
-                    }else{
-                        TextInputEditText_nomebarramento.setError("Campo Obrigatório");
-                    }
-
-                }else{
-                    TextInputEditText_tipobarramento.setError("Campo Obrigatório");//precisa remover o primeiro item caso ainda utilize este bloco de códigos!
-                }
-
-
-
-            }
-        });
-*/
         Button button = findViewById(R.id.btnBarramento);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), ActivityInfoGerais.class));
+                boolean noErrors = true;
+                for (TextInputLayout textInputLayout : textInputLayouts) {
+                    String editTextString = textInputLayout.getEditText().getText().toString();
+                    if (editTextString.isEmpty()) {
+                        textInputLayout.setError(getResources().getString(R.string.error_string));
+                        noErrors = false;
+                    } else {
+                        textInputLayout.setError(null);
+                    }
+                }
 
-                Toast.makeText(getApplicationContext(), "Barramento cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
+                if ((noErrors) && (tipoBarramento != "")) {
+                    // Se a condição acima for atendida então os campos estarão validados!
+                    //enviarDados(); // Chama o método para enviar dados para o Firebase - comentado por enquanto, logo não irá guardar os dados no firestore
+                    startActivity(new Intent(getApplicationContext(), ActivityInfoGerais.class));
 
+                    Toast.makeText(getApplicationContext(), "Barramento cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Verifique o tipo e barramento e o(s) campo(s) vazio(s)", Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(view, "Preencha todos os campos", Snackbar.LENGTH_LONG).setAction("ok", null).show();
+                }
             }
         });
 
+        btnCancelarBarramento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Aviso ao usuário
+                String resultadoAlertDialog = "Você está prestes a perder os dados inseridos nesta tela.";
+                AlertDialog.Builder dialog = new AlertDialog.Builder(ActivityInserirBarramento.this);
+
+                dialog.setTitle("Cancelar Cadastro?");
+                dialog.setMessage(resultadoAlertDialog);
+                //dialog.setIcon(R.drawable.calc_fsbarragem);
+                dialog.setCancelable(true);
+
+                dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        finish();//finaliza a atual activity. Isso é importante pois evita consumo de recursos desnecessariamente!
+
+                        Toast.makeText(getApplicationContext(), "Cadastro cancelado", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.setNegativeButton("Voltar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Prossiga o cadastro", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.create();
+                dialog.show();
+            }
+        });
     }
 
     @Override
@@ -160,22 +174,14 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            finish();//encerra a activity
-            return true;
-
-        }
-
         if (id == R.id.menu_inicio) {
             startActivity(new Intent(this, MainActivity.class));
             return true;
-
         }
 
         if (id == R.id.menu_inserirempresa) {
             startActivity(new Intent(this, ActivityInserirEmpresa.class));
             return true;
-
         }
 
         if (id == R.id.menu_inserirusina) {
@@ -208,11 +214,7 @@ public class ActivityInserirBarramento extends AppCompatActivity {
         }
 
         if (id == R.id.action_relatorio) {
-            return true;
-        }
-
-        if (id == R.id.action_bd) {
-            startActivity(new Intent(this, TesteBancoActivity.class));
+            //startActivity(new Intent(this, TelaRelatorioActivity.class));
             return true;
         }
 

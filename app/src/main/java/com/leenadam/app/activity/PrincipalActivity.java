@@ -46,7 +46,7 @@ public class PrincipalActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        //Esse é aquele símbolo do drawer
+        //Esse é aquele símbolo do navigationdrawer
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -132,14 +132,17 @@ public class PrincipalActivity extends AppCompatActivity
     //métodos chamados pelo floating action menu
     public void adicionarEmpresa(View view) {
         startActivity(new Intent(this, ActivityInserirEmpresa.class));
+        finish();
     }
 
     public void adicionarUsina(View view) {
         startActivity(new Intent(this, ActivityInserirUsina.class));
+        finish();
     }
 
     public void adicionarBarramento(View view) {
         startActivity(new Intent(this, ActivityInserirBarramento.class));
+        finish();
     }
 
 

@@ -38,7 +38,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,19 +56,6 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_listaltura"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Altura (a)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerAltura"
                     android:layout_width="match_parent"
@@ -79,26 +65,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Altura (a)" />
 
-                <!--
-                <Spinner
-                    android:id="@+id/AwesomeSpinnerAltura"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffe9be" />
-    -->
-                <!--<android.support.design.widget.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_listcomprimento"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Comprimento (b)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerComprimento"
                     android:layout_width="match_parent"
@@ -108,18 +74,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Comprimento (b)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_tipomaterial"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Tipo de Barragem quanto ao material de construção (c)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerTipoBarragem"
                     android:layout_width="match_parent"
@@ -129,18 +83,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Tipo de Barragem (c)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_tipofundacao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Tipo de fundação (d)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerTipoFundacao"
                     android:layout_width="match_parent"
@@ -150,18 +92,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Tipo de fundação (d)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_idadebarragem"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Idade da Barragem (e)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerIdadeBarragem"
                     android:layout_width="match_parent"
@@ -171,18 +101,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Idade da Barragem (e)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_vazaoprojeto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Vazão de projeto (f)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerVazaoProjeto"
                     android:layout_width="match_parent"
@@ -192,18 +110,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Vazão de projeto (f)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_casaforca"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Casa de Força (g)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerCasaForca"
                     android:layout_width="match_parent"
@@ -222,18 +128,6 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_confestruturaextravasora"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Confiabilidade das Estruturas Extravasoras (h)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerConfiabEstrutExtravasoras"
                     android:layout_width="match_parent"
@@ -243,18 +137,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Confiabilidade das Estruturas Extravasoras (h)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_confestruturaaducao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Confiabilidade das Estruturas de Adução (i)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerConfiabEstrutAducao"
                     android:layout_width="match_parent"
@@ -264,18 +146,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Confiabilidade das Estruturas de Adução (i)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_percolacao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Percolação (j)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerPercolacao"
                     android:layout_width="match_parent"
@@ -285,18 +155,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Percolação (j)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_deformacoesrecalques"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Deformações e Recalques (k)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerDeformacoesRecalques"
                     android:layout_width="match_parent"
@@ -306,18 +164,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Deformações e Recalques (k)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_deterioracaotaludesparamentos"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Deterioração dos Taludes / Paramentos (l)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerDeterioracaoTaludesParamentos"
                     android:layout_width="match_parent"
@@ -327,18 +173,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Deterioração dos Taludes / Paramentos (l)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_eclusa"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Eclusa (m)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerEclusa"
                     android:layout_width="match_parent"
@@ -357,18 +191,6 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_docprojeto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Existência de documentação de projeto (n)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerExistenciaDocProjeto"
                     android:layout_width="match_parent"
@@ -378,18 +200,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Existência de documentação de projeto (n)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_orgqualitec"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Estrutura organizacional e qualificação técnica dos profissionais da equipe de Segurança da Barragem (o)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerEstrutOrganizacional"
                     android:layout_width="match_parent"
@@ -399,18 +209,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Estrutura organizacional e qualificação técnica dos profissionais da equipe de Segurança da Barragem (o)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_inspmonitoramento"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Procedimentos de roteiros de inspeções de segurança e de monitoramento(p)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerProcedimentosRoteiros"
                     android:layout_width="match_parent"
@@ -420,18 +218,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Procedimentos de roteiros de inspeções de segurança e de monitoramento(p)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_regraoperacional"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Regra operacional dos dispositivos de descarga da barragem(q)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerRegraOperacional"
                     android:layout_width="match_parent"
@@ -441,18 +227,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Regra operacional dos dispositivos de descarga da barragem(q)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_relatoriosinspecao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Relatórios de inspeção de segurança com análise e interpretação(r)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerRelatoriosInspecao"
                     android:layout_width="match_parent"
@@ -472,18 +246,6 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_volumereservatorio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Volume Total do Reservatório (a)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerVolumeReservatorio"
                     android:layout_width="match_parent"
@@ -493,18 +255,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Volume Total do Reservatório (a)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_perdavidas"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Potencial de perdas de vidas humanas (b)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerPotencialPerdasVidas"
                     android:layout_width="match_parent"
@@ -514,18 +264,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Potencial de perdas de vidas humanas (b)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_impactoambiental"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Impacto ambiental (c)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerImpactoAmbiental"
                     android:layout_width="match_parent"
@@ -535,18 +273,6 @@
                     app:spinnerDirection="ltr"
                     app:spinnerHint="Impacto ambiental (c)" />
 
-                <!--<android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/TextInputEditText_impactosocioeconomico"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Impacto sócio-econômico (d)"
-                        android:inputType="text" />
-
-                </android.support.design.widget.TextInputLayout>-->
                 <com.isapanah.awesomespinner.AwesomeSpinner
                     android:id="@+id/AwesomeSpinnerImpactoSocioEconomico"
                     android:layout_width="match_parent"
@@ -559,6 +285,7 @@
 
                 <!--Remover essa parte no futuro ... deixar só pra aparecer nos resultados! a tela da matriz de classificação ficará mais clean-->
 
+                <!--
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -671,10 +398,11 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-
+                -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <Button
@@ -684,7 +412,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
-                        android:text="Confirmar" />
+                        android:text="Cancelar" />
 
                     <Button
                         android:id="@+id/btnClassificacao"
@@ -696,29 +424,12 @@
                         android:text="Avançar" />
                     <!--Atenção: alterar o id... btnClassificacao e o text: "Finalizar". Na tela de resultados, o id pode ser btnEnviar e o text: "Confirmar" -->
 
-
                 </LinearLayout>
-
 
             </LinearLayout>
 
         </android.support.design.card.MaterialCardView>
 
-
     </android.support.v4.widget.NestedScrollView>
-
-
-    <!--
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="@color/browser_actions_divider_color"
-        app:backgroundTintMode="src_over"
-        app:fabSize="normal"
-        app:maxImageSize="@android:dimen/app_icon_size" /> -->
 
 </android.support.design.widget.CoordinatorLayout>

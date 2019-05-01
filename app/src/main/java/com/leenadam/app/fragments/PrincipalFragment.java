@@ -81,8 +81,7 @@ public class PrincipalFragment extends Fragment implements View.OnClickListener 
                 break;
 
             case R.id.buttonAneel://Por enquanto, será direcionado diretamente para a tela de cadastro da empresa. Porém, será mecessário criar uma outra tela na qual ficarão expostas, em um recyclerview, as empresas cadastradas.
-                Intent intent = new Intent(getActivity(), ActivityInserirEmpresa.class);
-                startActivity(intent);
+                instrucoesPreenchimento();
                 break;
 
             case R.id.buttonAnm:
@@ -96,7 +95,9 @@ public class PrincipalFragment extends Fragment implements View.OnClickListener 
             case R.id.buttonInfo:
                 abrirInfo("titulo", "mensagem");
                 break;
+
         }
+
 
     }
 
@@ -131,6 +132,36 @@ public class PrincipalFragment extends Fragment implements View.OnClickListener 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(), "O formulário da Aneel está disponível.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        dialog.create();
+        dialog.show();
+    }
+
+    public void instrucoesPreenchimento() {
+
+        String conteudoAlert = "\nInstruções:\n\n" +
+                "1 - Insira Empresa;\n" +
+                "2 - Insira Usina;\n" +
+                "3 - Insira Barramento;\n" +
+                "4 - Insira Informações Gerais;\n" +
+                "5 - Preencha Matriz de Classificação;\n" +
+                "6 - Preencha Declarações;\n" +
+                "7 - Visualize Relatório;";
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+
+        dialog.setCancelable(true);
+        dialog.setTitle("Iniciar Formulário ANEEL");
+        dialog.setMessage(conteudoAlert);
+
+        dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getActivity(), ActivityInserirEmpresa.class);
+                startActivity(intent);
+                Toast.makeText(getActivity(), "Prossiga", Toast.LENGTH_SHORT).show();
             }
         });
 

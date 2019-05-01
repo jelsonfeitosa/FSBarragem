@@ -47,9 +47,11 @@
                     android:textStyle="bold" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cbResponsavelTecnico"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:onClick="onCheckboxClicked"
                     android:text="Declaro que as ações conduzidas pelo responsável técnico para a classificação da categoria de risco e dano potencial da(s) barragem(s) e/ou do(s) dique(s)e demais informações prestadas neste documento tiveram o devido recolhimento de anotação  de responsabilidade técnica – ART específica ou de cargo e função,  em atendimento ao parágrafo 2°, do Art. 18 da Resolução Normativa n° 696, de 15 de dezembro de 2015."
                     android:textAlignment="viewStart"
                     android:textAllCaps="false"
@@ -65,9 +67,11 @@
                     android:textStyle="bold" />
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cbRepresentanteLegal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:onClick="onCheckboxClicked"
                     android:text="Declaro, para fins de direito, sob as penas da lei e em atendimento à  Resolução Normativa n° 696, de 15 de dezembro de 2015, que as informações prestadas neste documento são verdadeiras, autênticas e condizentes com a realidade da(s) barragem(s) e/ou do(s) dique(s) da central geradora em referência.
       Nada mais a declarar, e ciente das responsabilidades pelas declarações prestadas, firmo a presente declaração.
       Fico ciente através desse documento que a falsidade dessa declaração configura crime previsto no Código Penal Brasileiro, e passível de apuração na forma da Lei."
@@ -229,7 +233,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/aceitarDeclaracao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="70dp"
